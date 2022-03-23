@@ -1,223 +1,245 @@
 <!DOCTYPE html>
-<html lang="zh">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gridea</title>
-    <meta name="description" content="温故而知新">
-    <link rel="shortcut icon" href="https://plamdoctor.github.io/media/images/eduifuns.png">
-    <link rel="stylesheet" href="//fonts.loli.net/css?family=Arimo:400,700,400italic">
-    <link rel="stylesheet" href="https://plamdoctor.github.io/media/css/icomoon.css">
-    <link rel="stylesheet" href="https://plamdoctor.github.io/media/css/main.css?v=1648008618597">
-  </head>
+<html lang="zh-CN">
 
-<body class="page-body">
-    <!-- skin-white -->
-    <div class="page-container">
-        <div class="sidebar-menu toggle-others fixed">
-            <div class="sidebar-menu-inner">
-                <header class="logo-env">
-                    <!-- logo -->
-                    <div class="logo">
-                        <a href="https://plamdoctor.github.io" class="logo-expanded">
-                            <img src="https://plamdoctor.github.io/images/avatar.png"  style="height:68px" alt="" />
-                        </a>
-                        <a href="https://plamdoctor.github.io" class="logo-collapsed">
-                            <img src="https://plamdoctor.github.io/media/images/eduifuns.png" width="40" alt="" />
-                        </a>
-                    </div>
-                    <div class="mobile-menu-toggle visible-xs">
-                        <a href="#" data-toggle="mobile-menu">
-                            <i class="icon-bar"></i>
-                        </a>
-                    </div>
-                </header>
-                <ul id="main-menu" class="main-menu">
-                    <!-- li 加 has-sub 开启分组-->
-                    <li class="has-sub">
-                        <a>
-                            <i class="icon-globe"></i>
-                            <span class="title">在线工具</span>
-                        </a>
-                        <!-- ul li 格式添加子分组-->
-                        <ul>
-                            <li>
-                                <a href="#教学助手" class="smooth">
-                                    <i class="icon-star"></i>
-                                    <span class="title">教学助手</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#图文影音" class="smooth">
-                                    <i class="icon-pencil"></i>
-                                    <span class="title">图文影音</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#百科全书" class="smooth">
-                                    <i class="icon-database"></i>
-                                    <span class="title">百科全书</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    
-                    
-                    <li class="submit-tag">
-                        <a href="https://plamdoctor.github.io/about">
-                            <i class="icon-heart"></i>
-                            <span class="title">关于本站</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="main-content">
-            <nav class="navbar user-info-navbar" role="navigation">
-                <!-- User Info, Notifications and Menu Bar -->
-                <!-- Left links for user info navbar -->
-                <ul class="user-info-menu left-links list-inline list-unstyled">
-                    <li class="hidden-sm hidden-xs">
-                        <a href="#" data-toggle="sidebar">
-                            <i class="icon-bar"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Gridea » Feed"
+  href="https://plamdoctor.github.io/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://plamdoctor.github.io/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
-            <!-- 今日诗词 -->
-            <div id="poem_content">
-                <h3 id="poem_sentence"></h3><span id="poem_info"></span>
-            </div>
-            <!-- 今日诗词 -->
-            <br />
-            <!-- 在线工具 -->
-            
-            
-            
-            <!-- END 在线工具 -->
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
 
-            <!-- 实用软件 -->
-            
-            <!-- END 实用软件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
 
-            <!-- 线上课程 -->
-            
-            <!-- END 线上课程 -->
+<script>hljs.initHighlightingOnLoad();</script>
 
-            <!-- 素材资源 -->
-            
-            <!-- END 素材资源 -->
+</head>
 
-
-            <!-- Main Footer -->
-            <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
-            <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
-            <!-- Or class "fixed" to  always fix the footer to the end of page -->
-            <footer class="main-footer sticky footer-type-1">
-                <div class="footer-inner">
-                    <!-- Add your copyright text here -->
-                    <div class="footer-text">
-                        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <span id="busuanzi_container_site_pv" style='display:none'>总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-                    </div>
-                    <div class="go-up">
-                        <a href="#" rel="go-top">
-                            <i class="icon-up"></i>
-                        </a>
-                    </div>
-                </div>
-            </footer>
-        </div>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://plamdoctor.github.io">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1648010105382"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://plamdoctor.github.io/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 首页Header -->
+          <div class="site-heading">
+            <img class="user-avatar" src="/images/avatar.png" alt="头像">
+            <h1>Gridea</h1>
+            <span class="subheading">温故而知新</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      
+      <!-- 每行的总容器 -->
+      <div class="post-row-container">
+        <!-- 第0层；标题 -->
+        <div class="title-floor">
+          <div class="post-title-container">
+            
+            <a href="https://plamdoctor.github.io/post/hello-gridea/">
+              <h2 class="post-title">
+                Hello Gridea
+              </h2>
+            </a>
+          </div>
+        </div>
+        <!-- 第一层：包含文章描述、时间信息、封面图 -->
+        <div class="post-row-first-floor">
+          <div class="post-preview">
+            <h3 class="post-subtitle">
+              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
-
-    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script type="text/javascript">
-    jinrishici.load(function(result) {
-        var sentence = document.querySelector("#poem_sentence")
-        var info = document.querySelector("#poem_info")
-        sentence.innerHTML = result.data.content
-        info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
-    });
-    </script>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-    <script src="//cdnjs.loli.net/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- 锚点平滑移动 -->
-    <script type="text/javascript">
-    $(document).ready(function() {
-         //img lazy loaded
-         const observer = lozad();
-         observer.observe();
-
-        $(document).on('click', '.has-sub', function(){
-            var _this = $(this)
-            if(!$(this).hasClass('expanded')) {
-               setTimeout(function(){
-                    _this.find('ul').attr("style","")
-               }, 300);
+            </h3>
+            <p class="post-meta">
+              <span class="time">2018-12-12</span>
+              <span>,</span>
+              <span class="post-stats">2 min read</span>
+            </p>
+          </div>
+          
+          <a href="https://plamdoctor.github.io/post/hello-gridea/" class="post-feature-image" style="background-image: url('https://plamdoctor.github.io/post-images/hello-gridea.png')">
+          </a>
+          
+        </div>
+        <!-- 第二层：下划线、占位标签、tags -->
+        <div class="post-row-sec-floor">
+          <hr>
+          <div class="clearfix"></div>
+          
+          <a href="https://plamdoctor.github.io/tag/SUZE0YLjY/" class="post-tag">
+            Gridea
+          </a>
+          
+        </div>
+      </div>
+      </>
+      
+      <!-- 
+       -->
+    </div>
+  </div>
+</div>
+  
+  
+<div class="page bg-color">
+  <ul class="pagination-ul">
+    
+    
+      
+        <li class="pagination-li pagination-active">
+            <a href="/page/../">
+              1
+            </a>
+        </li>
+      
+    
+    
+  </ul>
+</div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
               
-            } else {
-                $('.has-sub ul').each(function(id,ele){
-                    var _that = $(this)
-                    if(_this.find('ul')[0] != ele) {
-                        setTimeout(function(){
-                            _that.attr("style","")
-                        }, 300);
-                    }
-                })
-            }
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://plamdoctor.github.io/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://plamdoctor.github.io/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://plamdoctor.github.io/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
         })
-        $('.user-info-menu .hidden-sm').click(function(){
-            if($('.sidebar-menu').hasClass('collapsed')) {
-                $('.has-sub.expanded > ul').attr("style","")
-            } else {
-                $('.has-sub.expanded > ul').show()
-            }
-        })
-        $("#main-menu li ul li").click(function() {
-            $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
-            $(this).addClass('active'); // 添加当前元素的样式
-        });
-        $("a.smooth").click(function(ev) {
-            ev.preventDefault();
-
-            public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
-            ps_destroy();
-            $("html, body").animate({
-                scrollTop: $($(this).attr("href")).offset().top - 30
-            }, {
-                duration: 500,
-                easing: "swing"
-            });
-        });
-        return false;
-    });
-
-    var href = "";
-    var pos = 0;
-    $("a.smooth").click(function(e) {
-        $("#main-menu li").each(function() {
-            $(this).removeClass("active");
-        });
-        $(this).parent("li").addClass("active");
-        e.preventDefault();
-        href = $(this).attr("href");
-        pos = $(href).position().top - 30;
-    });
-    </script>
-    <!-- Bottom Scripts -->
-    <script src="https://plamdoctor.github.io/media/js/bootstrap.min.js"></script>
-    <script src="https://plamdoctor.github.io/media/js/TweenMax.min.js"></script>
-    <script src="https://plamdoctor.github.io/media/js/resizeable.js"></script>
-    <script src="https://plamdoctor.github.io/media/js/xenon-toggles.js"></script>
-    <script src="https://plamdoctor.github.io/media/js/xenon-custom.js"></script>
-    <script src="https://plamdoctor.github.io/media/js/lozad.js"></script>
-    <script src="https://plamdoctor.github.io/media/js/LetterAvatar.js"></script>
+      }
+    }
+  })(this));</script>
+  
 </body>
-
-
 
 </html>
