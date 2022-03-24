@@ -84,7 +84,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1648108186112"
+            <form id="gridea-search-form" style="position: relative" data-update="1648108761219"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -140,7 +140,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1648108186112"
+            <form id="gridea-search-form" style="position: relative" data-update="1648108761219"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -184,36 +184,109 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto post-content-container">
           
-          <p>看完本文，告别烦恼！今天<strong>教大家怎么看电影、刷剧！</strong></p>
-<h2 id="刷剧网页效果如下图"><strong>刷剧网页效果如下图👇</strong></h2>
-<p>只需要使用手机或者电脑浏览器打开网页，然后粘贴视频链接即可免费播放对应的视频了，使用非常简单。而且<strong>手机</strong>、<strong>电脑</strong>都可以使用哦！👍</p>
-<figure data-type="image" tabindex="1"><img src="https://mmbiz.qpic.cn/mmbiz_png/jmhESDe15k4u9xvZKlkWrMWB1CzwoDceK6M6LpMcft25dffRuo7lniadmPbxgy88HokQnPTYnibAksPPGmW7dH6g/640?wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"></figure>
-<p>花25s⏲，找个电影或者电视剧粘贴进<code>播放地址</code>的输入框中，然后点击播放就可以开心刷剧啦！</p>
-<blockquote>
-<p>备注：播放不太好使的时候，记得切换接口哦！已经内置了很多接口供大家使用，如下图👇👇</p>
-</blockquote>
-<figure data-type="image" tabindex="2"><img src="https://mmbiz.qpic.cn/mmbiz_png/jmhESDe15k4u9xvZKlkWrMWB1CzwoDce1gSLicG7ibxzRCfDgFiaEVeIPsfI4X1T9RfLVguGwu7Y0AAMQFHod8y6g/640?wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"></figure>
-<h2 id="刷剧网页更上一层楼"><strong>刷剧网页更上一层楼</strong></h2>
-<p>60s⏲完成上面的步骤后，基本就够个人使用了，是不是很棒！</p>
-<p>如果想要更多个性化的内容，有兴趣的兄弟可以继续往下研究哈~</p>
-<h3 id="拦截gg"><strong>拦截GG</strong></h3>
-<p>这类解析其实有的接口会有些GG，毕竟哪个啥。。。不过没关系，我们只需要上个拦截插件即可，推荐安装这一款。</p>
-<figure data-type="image" tabindex="3"><img src="https://mmbiz.qpic.cn/mmbiz_png/jmhESDe15k4u9xvZKlkWrMWB1CzwoDcexPbiajPDIcHQFVwvuGicPpeAGywXmvjWzFmspcTrVBgOJNKV2m5AWdjQ/640?wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"></figure>
-<p>手机的话，iOS的Safari支持在AppStore下载插件了，安卓有一个叫Kiwi Browser的浏览器也是支持安装插件的。</p>
-
-          <div class="toc-container"><ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%88%B7%E5%89%A7%E7%BD%91%E9%A1%B5%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B%E5%9B%BE"><strong>刷剧网页效果如下图👇</strong></a></li>
-<li><a href="#%E5%88%B7%E5%89%A7%E7%BD%91%E9%A1%B5%E6%9B%B4%E4%B8%8A%E4%B8%80%E5%B1%82%E6%A5%BC"><strong>刷剧网页更上一层楼</strong></a>
-<ul>
-<li><a href="#%E6%8B%A6%E6%88%AAgg"><strong>拦截GG</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>手掌导航VIP视频解析</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #player
+        {
+            background-color: black;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type = "text/javascript" > eval(function(p, a, c, k, e, d) {
+    e = function(c) {
+    return (c < a ? "": e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+    };
+    if (!''.replace(/^/, String)) {
+    while (c--) d[e(c)] = k[c] || e(c);
+    k = [function(e) {
+    return d[e]
+    }];
+    e = function() {
+    return '\\w+'
+    };
+    c = 1
+    };
+    while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+    return p
+    } ('b a(){0 6=1.2("9").4;0 5=1.2("3");0 3=1.2("3").c;0 8=5.e[3].4;0 7=1.2("f");7.d=8+6}', 16, 16, 'var|document|getElementById|jk|value|jkurl|diz|cljurl|jkv|url|dihejk|function|selectedIndex|src|options|player'.split('|'), 0, {}))
+    </script>
+</head>
+<body>
+<br />
+<div class="container" style="padding-top:0px;" id="wbk">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"> <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>将视频网站链接（例如：爱奇艺、腾讯视频、优酷、土豆、芒果TV等，支持解析M3U8链接）粘贴到视频地址输入框之后点击播放按钮即可。</strong>
+    </div>
+    <div class="col-md-14 column">
+        <div class="panel panel-default">
+            <div id="kj" class="panel-body">
+                <iframe src="https://vod.lycheer.net/e22cd48bvodtransgzp1253442168/6af5463d387702297880114489/v.f100010.mp4" id="player" width="100%" height="200px" allowtransparency="true" frameborder="0" scrolling="no"> </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-14 column">
+        <form method="get">
+            <div class="input-group" style="width: 100%;">
+                <span class="input-group-addon input-lg" style="width: 80px; ">选择接口</span>
+                <select class="form-control input-lg" id="jk">
+                    <option rel="nofollow" value="https://jx.parwix.com:4433/player/?url=" selected="">Parwix解析接口</option>
+					<option rel="nofollow" value="https://jx.m3u8.tv/jiexi/?url=">M3U8解析接口</option>
+					<option rel="nofollow" value="https://www.pangujiexi.cc/jiexi.php?url=">盘古解析接口</option>
+                    <option rel="nofollow" value="https://www.mtosz.com/m3u8.php?url=">Mao解析接口</option>
+                    <option rel="nofollow" value="https://nbjx.vip/?url=">牛逼解析接口</option>
+                    <option rel="nofollow" value="https://z1.m1907.cn/?jx=">1907解析接口</option>
+                    <option rel="nofollow" value="https://www.administratorw.com/video.php?url=">无名小站接口</option>
+                    <option rel="nofollow" value="http://17kyun.com/api.php?url=">17kyun解析接口</option>
+                    <option rel="nofollow" value="https://vip.66parse.club/?url=">200解析接口</option>
+                    <option rel="nofollow" value="http://jx.rdhk.net/?v=">HK解析接口</option>
+                    <option rel="nofollow" value="https://www.8090g.cn/?url=">8090解析接口</option>
+                    <option rel="nofollow" value="https://www.8090g.cn/jiexi/?url=">8090备用接口</option>
+                    <option rel="nofollow" value="http://www.1717yun.com/jx/vip/index.php?url=">1717解析接口</option>
+                    <option rel="nofollow" value="https://www.ckmov.vip/api.php?url=">ckmov解析接口</option>
+                    <option rel="nofollow" value="http://jx.yparse.com/?url=">步步高解析接口</option>
+                    <option rel="nofollow" value="https://jx.m3u8.tv/jiexi/?url=">无广告解析接口</option>
+                    <option rel="nofollow" value="https://www.kpezp.cn/jlexi.php?url=">小蒋解析接口</option>
+                    <option rel="nofollow" value="https://www.xymav.com/?url=">七七解析接口</option>
+                    <option rel="nofollow" value="https://2.08bk.com/?url=">小七解析接口</option>
+                    <option rel="nofollow" value="https://okjx.cc/?url=">OK解析接口</option>
+                    <option rel="nofollow" value="https://api.v6.chat/?url=">音萌解析接口</option>
+                </select>
+            </div>
+            <br />
+            <div class="input-group" style="width: 100%;">
+                <span class="input-group-addon input-lg" style="width: 80px;">播放地址</span>
+                <input class="form-control input-lg" type="search" placeholder="输入播放地址" id="url" />
+            </div>
+            <br />
+            <div>
+                <button id="bf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk()">开始播放</button>
+            </div>
+        </form>
+    </div>
 </div>
+<br />
+<div class="copyright">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-12">
+                <!--<br />-->
+                <span>Powered by:<a href="/"> 手掌导航</a> <br> Copyright&copy;2022 All Rights Reserved.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+          <div class="toc-container"></div>
           
           <hr />
           <p class="next-post">下一篇：
