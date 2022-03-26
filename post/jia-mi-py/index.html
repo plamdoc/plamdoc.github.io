@@ -11,7 +11,7 @@
 <meta name="description" content="欢迎访问[手掌doc]的个人博客">
 <meta name="author" content="kveln">
 <title>加密-py | 手掌doc</title>
-<link rel="stylesheet" href="https://s4210.gitee.io/plam/css/jm.css">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -85,7 +85,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1648274622963"
+            <form id="gridea-search-form" style="position: relative" data-update="1648275896089"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -141,7 +141,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1648274622963"
+            <form id="gridea-search-form" style="position: relative" data-update="1648275896089"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -168,7 +168,7 @@
               <h1>加密-py</h1>
               <span class="meta">
                 Posted on
-                2022-03-26，0 min read
+                2022-03-26，1 min read
               </span>
             </div>
           
@@ -177,24 +177,37 @@
     </div>
   </div>
 </header>
- <script>
-        
-        var postTitleValue = document.querySelector(".post-title").innerHTML.trim();
-        if (postTitleValue.slice(0, 2) === "加密") {
 
-            var oScript = document.createElement("script");
-            oScript.src = "https://s4210.gitee.io/plam/js/aes.js";
-            document.body.appendChild(oScript);
-        }
-    </script>
   <!-- Post Content -->
   <article id="post-content-article">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto post-content-container">
           
-          <p>;;;;;;;;</p>
-
+          <style>
+#test1{
+border: 2px solid black;
+padding: 10px;
+margin: 15px 0
+}
+</style>
+<div id="test1"><div data-origin="stDkxwE"data-now="U2FsdGVkX19y5/AiAAtZy2R6PQ57zsSZgv3aghSMI4A="style="display:none"class="cryptoText">woxihuanni1</div>请输入密码查看隐藏内容：<input type="password"><input type="submit"onclick="crypto(this)"></button></div>
+<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.min.js"></script>
+<script type="text/javascript">
+function crypto(sub) {
+    const e = sub.parentNode.firstElementChild
+    const key = sub.previousElementSibling.value
+    const origin = e.getAttribute("data-origin")
+    const now = e.getAttribute("data-now")
+    const res = CryptoJS.AES.decrypt(now, key).toString(CryptoJS.enc.Utf8)
+    if (res == origin) {
+        const t = e.innerHTML.replace(/\s/g, "")
+        sub.parentNode.innerHTML = CryptoJS.AES.decrypt(t, key).toString(CryptoJS.enc.Utf8)
+    } else {
+        alert("密码错误！")
+    }
+}
+</script>
           <div class="toc-container"></div>
           
           <hr />
@@ -321,6 +334,9 @@
     }
   })(this));</script>
   
+  
+ 
+  
   <div id="landlord-parent">
     <div id="landlord">
         <div class="message" style="opacity:0"></div>
@@ -363,6 +379,7 @@
 </script>
   
   <script src="https://plamdoctor.github.io/media/scripts/tocScript.js"></script>
+  
 </body>
 
 </html>
