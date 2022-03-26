@@ -85,7 +85,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1648277908243"
+            <form id="gridea-search-form" style="position: relative" data-update="1648278449538"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -141,7 +141,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1648277908243"
+            <form id="gridea-search-form" style="position: relative" data-update="1648278449538"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -459,7 +459,22 @@
 </script>
   
   <script src="https://plamdoctor.github.io/media/scripts/tocScript.js"></script>
-  
+  <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.min.js"></script>
+<script type="text/javascript">
+function crypto(sub) {
+    const e = sub.parentNode.firstElementChild
+    const key = sub.previousElementSibling.value
+    const origin = e.getAttribute("data-origin")
+    const now = e.getAttribute("data-now")
+    const res = CryptoJS.AES.decrypt(now, key).toString(CryptoJS.enc.Utf8)
+    if (res == origin) {
+        const t = e.innerHTML.replace(/\s/g, "")
+        sub.parentNode.innerHTML = CryptoJS.AES.decrypt(t, key).toString(CryptoJS.enc.Utf8)
+    } else {
+        alert("密码错误！")
+    }
+}
+</script>
 </body>
 
 </html>
