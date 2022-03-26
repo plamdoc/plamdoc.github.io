@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://plamdoctor.github.io</id>
+    <id>https://plamdoc.github.io</id>
     <title>手掌doc</title>
-    <updated>2022-03-26T07:23:10.255Z</updated>
+    <updated>2022-03-26T11:32:28.672Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://plamdoctor.github.io"/>
-    <link rel="self" href="https://plamdoctor.github.io/atom.xml"/>
+    <link rel="alternate" href="https://plamdoc.github.io"/>
+    <link rel="self" href="https://plamdoc.github.io/atom.xml"/>
     <subtitle>梧高凤必至，花香蝶自来</subtitle>
-    <logo>https://plamdoctor.github.io/images/avatar.png</logo>
-    <icon>https://plamdoctor.github.io/favicon.ico</icon>
+    <logo>https://plamdoc.github.io/images/avatar.png</logo>
+    <icon>https://plamdoc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 手掌doc</rights>
     <entry>
         <title type="html"><![CDATA[**个人收藏的一些电影、电视剧——持续更新**]]></title>
-        <id>https://plamdoctor.github.io/post/收藏/</id>
-        <link href="https://plamdoctor.github.io/post/收藏/">
+        <id>https://plamdoc.github.io/post/收藏/</id>
+        <link href="https://plamdoc.github.io/post/收藏/">
         </link>
         <updated>2022-03-26T05:25:48.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[在线解析]]></title>
-        <id>https://plamdoctor.github.io/post/apijx/</id>
-        <link href="https://plamdoctor.github.io/post/apijx/">
+        <id>https://plamdoc.github.io/post/apijx/</id>
+        <link href="https://plamdoc.github.io/post/apijx/">
         </link>
         <updated>2022-03-24T05:35:59.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[汇总的一些精选网址（持续更新）]]></title>
-        <id>https://plamdoctor.github.io/post/zxys/</id>
-        <link href="https://plamdoctor.github.io/post/zxys/">
+        <id>https://plamdoc.github.io/post/zxys/</id>
+        <link href="https://plamdoc.github.io/post/zxys/">
         </link>
         <updated>2022-03-24T04:20:50.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[发现生活中的美~~~一些人间烟火]]></title>
-        <id>https://plamdoctor.github.io/post/findlife/</id>
-        <link href="https://plamdoctor.github.io/post/findlife/">
+        <id>https://plamdoc.github.io/post/findlife/</id>
+        <link href="https://plamdoc.github.io/post/findlife/">
         </link>
         <updated>2022-03-23T06:26:57.000Z</updated>
     </entry>
