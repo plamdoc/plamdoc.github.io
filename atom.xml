@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://plamdoc.github.io</id>
     <title>手掌doc</title>
-    <updated>2022-03-28T07:06:03.881Z</updated>
+    <updated>2022-03-28T12:26:19.484Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://plamdoc.github.io"/>
     <link rel="self" href="https://plamdoc.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://plamdoc.github.io/images/avatar.png</logo>
     <icon>https://plamdoc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 手掌doc</rights>
+    <entry>
+        <title type="html"><![CDATA[教师三部曲]]></title>
+        <id>https://plamdoc.github.io/post/教师三部曲/</id>
+        <link href="https://plamdoc.github.io/post/教师三部曲/">
+        </link>
+        <updated>2022-03-28T12:24:36.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[**个人收藏的一些电影、电视剧——持续更新**]]></title>
         <id>https://plamdoc.github.io/post/收藏/</id>
