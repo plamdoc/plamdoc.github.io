@@ -10,7 +10,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="欢迎访问[手掌doc]的个人博客">
 <meta name="author" content="kveln">
-<title>解析 | 手掌doc</title>
+<title>V2rayN 使用教程 | 手掌doc</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 <link
   href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
   rel='stylesheet' type='text/css'>
-<link rel="alternate" type="application/rss+xml" title="解析 | 手掌doc » Feed"
+<link rel="alternate" type="application/rss+xml" title="V2rayN 使用教程 | 手掌doc » Feed"
   href="https://plamdoc.github.io/atom.xml">
 <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
@@ -31,9 +31,66 @@
 
 <script>hljs.initHighlightingOnLoad();</script>
 
+  <meta property="og:description" content="V2rayN 使用教程" />
+  <meta property="og:url" content="https://plamdoc.github.io/post/V2rayN 使用教程/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="手掌doc" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://plamdoc.github.io">手掌doc</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="https://plamdoc.github.io/post/apijx">视频解析</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1648718208059"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
     <a class="navbar-brand" href="https://plamdoc.github.io">手掌doc</a>
@@ -91,9 +148,16 @@
         
           <!-- 没Title为其他页面Header -->
           
-            <!-- 其他页面（archives、tags、about...）Header -->
-            <div class="sub-site-heading">
-              <h1 class="tag-tl">#解析</h1>
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>V2rayN 使用教程</h1>
+              <span class="meta">
+                Posted on
+                2022-03-31，1 min read
+              </span>
             </div>
           
         
@@ -102,55 +166,90 @@
   </div>
 </header>
 
-  <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      
-      <!-- 每行的总容器 -->
-      <div class="post-row-container">
-        <!-- 第0层；标题 -->
-        <div class="title-floor">
-          <div class="post-title-container">
-            
-            <a href="https://plamdoc.github.io/post/apijx/">
-              <h2 class="post-title">
-                在线解析
-              </h2>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id=""></h2>
+<p><strong>0. 简介</strong></p>
+<p><code>V2RayN</code>是PC平台上一个对新手比较友好的V2Ray客户端。V2RayN基于V2Ray内核，包含v2rayn-core与V2ray的windows客户端。V2rayN支持Trojan，Xray/V2ray VMESS VLESS，SS 。</p>
+<figure data-type="image" tabindex="1"><img src="https://qcdn.beautifulreading.com/upload_files/2022/03/31/a4acd8bc36d9a84f1d6aa27b3fc2832c.png" alt="" loading="lazy"></figure>
+<p><strong>1. 下载客户端</strong></p>
+<p><a href="https://stx.lanzouw.com/i6pwL02d807g">下载 V2rayN 客户端</a></p>
+<p>下载 V2RayN客户端，解压至任意磁盘并运行</p>
+<figure data-type="image" tabindex="2"><img src="https://qcdn.beautifulreading.com/upload_files/2022/03/31/6799828a80c36b2b13e0c34164d38476.png" alt="" loading="lazy"></figure>
+<p><strong>2. 设置订阅地址</strong></p>
+<p>复制 V2Ray 订阅</p>
+<p>打开 V2rayN，随后点击 <code>订阅设置。</code></p>
+<p>在新页面的备注中填写本站名或者自己的备注。</p>
+<p>点击选中刚刚导入的配置选项卡</p>
+<p>点击上方按钮复制订阅连接,地址输入框中粘贴订阅链接并点击确定。</p>
+<figure data-type="image" tabindex="3"><img src="https://qcdn.beautifulreading.com/upload_files/2022/03/31/6d2dfaafba718e592ab5b20ed5d6d7ed.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://qcdn.beautifulreading.com/upload_files/2022/03/31/85affddc4224e25be3e3f189096181e1.png" alt="" loading="lazy"></figure>
+<p><strong>3. 更新订阅</strong></p>
+<p>点击 <code>更新订阅</code> 若操作无误,节点列表将正常加载</p>
+<figure data-type="image" tabindex="5"><img src="https://qcdn.beautifulreading.com/upload_files/2022/03/31/900d944961ded79365d51c2b20d6ae41.png" alt="" loading="lazy"></figure>
+<p><strong>4. 开启代理</strong></p>
+<p>最后点击v2rayn小图标,选择 <code>系统代理-不改变系统代理</code></p>
+<figure data-type="image" tabindex="6"><img src="https://qcdn.beautifulreading.com/upload_files/2022/03/31/e1bf6c51aa3fef2a406df14362e4fc44.png" alt="" loading="lazy"></figure>
+<p>一切准备就绪~~~</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://plamdoc.github.io/post/生活大爆炸/">
+              <span class="post-title">
+                生活大爆炸1--12季全1080p高清中英双字无水&rarr;
+              </span>
             </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'miQczVUI1IQP6sPqEKX0q4Xj-gzGzoHsz',
+		appKey: '3qRIJjuQOC0qrpWeX3cgUWjx',
+		avatar: '',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: false,
+	});
+</script>
+
+            
           </div>
-        </div>
-        <!-- 第一层：包含文章描述、时间信息、封面图 -->
-        <div class="post-row-first-floor">
-          <div class="post-preview">
-            <h3 class="post-subtitle">
-              
-            </h3>
-            <p class="post-meta">
-              <span class="time">2022-03-24</span>
-              <span>,</span>
-              <span class="post-stats">2 min read</span>
-            </p>
-          </div>
-          
-        </div>
-        <!-- 第二层：下划线、占位标签、tags -->
-        <div class="post-row-sec-floor">
-          <hr>
-          <div class="clearfix"></div>
-          
-          <a href="https://plamdoc.github.io/tag/GILbZ4fMm/" class="post-tag">
-            解析
-          </a>
-          
         </div>
       </div>
-      </>
-      
-      <!-- 
-       -->
-    </div>
-  </div>
-</div>
+  </article>
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -233,7 +332,7 @@
   
  
   
-    <div id="landlord-parent">
+  <div id="landlord-parent">
     <div id="landlord">
         <div class="message" style="opacity:0"></div>
         <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
@@ -274,6 +373,23 @@
     }
 </script>
   
+  <script src="https://plamdoc.github.io/media/scripts/tocScript.js"></script>
+  <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.min.js"></script>
+<script type="text/javascript">
+function crypto(sub) {
+    const e = sub.parentNode.firstElementChild
+    const key = sub.previousElementSibling.value
+    const origin = e.getAttribute("data-origin")
+    const now = e.getAttribute("data-now")
+    const res = CryptoJS.AES.decrypt(now, key).toString(CryptoJS.enc.Utf8)
+    if (res == origin) {
+        const t = e.innerHTML.replace(/\s/g, "")
+        sub.parentNode.innerHTML = CryptoJS.AES.decrypt(t, key).toString(CryptoJS.enc.Utf8)
+    } else {
+        alert("密码错误！")
+    }
+}
+</script>
 </body>
 
 </html>
