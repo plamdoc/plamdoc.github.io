@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://plamdoc.github.io</id>
     <title>手掌doc</title>
-    <updated>2022-04-12T06:42:19.731Z</updated>
+    <updated>2022-04-12T06:51:40.999Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://plamdoc.github.io"/>
     <link rel="self" href="https://plamdoc.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://plamdoc.github.io/images/avatar.png</logo>
     <icon>https://plamdoc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 手掌doc</rights>
+    <entry>
+        <title type="html"><![CDATA[Motrix 下载器]]></title>
+        <id>https://plamdoc.github.io/post/motrix-xia-zai-qi/</id>
+        <link href="https://plamdoc.github.io/post/motrix-xia-zai-qi/">
+        </link>
+        <updated>2022-04-12T06:44:53.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[全网免费音乐搜索汇总]]></title>
         <id>https://plamdoc.github.io/post/music/</id>
@@ -39,7 +46,7 @@
         <updated>2022-03-24T05:35:59.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[汇总的一些精选网址（持续更新）]]></title>
+        <title type="html"><![CDATA[免费的在线影视网站汇总（持续更新）]]></title>
         <id>https://plamdoc.github.io/post/zxys/</id>
         <link href="https://plamdoc.github.io/post/zxys/">
         </link>
