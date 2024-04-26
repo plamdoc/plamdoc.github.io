@@ -23,13 +23,19 @@
         window.onload = function() {
             var encryptedHtml = document.getElementById('encryptedHtml').innerHTML;
             var decryptedHtml = decrypt(encryptedHtml);
-            document.body.innerHTML = decryptedHtml;
+            document.getElementById('encryptedHtml').innerHTML = decryptedHtml;
         };
     </script>
 </head>
 <body>
-    <!-- 加密后的 HTML 代码 -->
+    <!-- 加密前的 HTML 代码 -->
     <div id="encryptedHtml" style="display: none;">
+        &lt;h1&gt;Hello, World!&lt;/h1&gt;
+        &lt;p&gt;This is a test.&lt;/p&gt;
+    </div>
+
+    <!-- 加密后的 HTML 代码 -->
+    <div id="encryptedHtmlEncoded" style="display: none;">
         aD0+PHNjcmlwdD5wYXJ0aWNpcGFudCgpOzwvc2NyaXB0PjxzY3JpcHQgc3JjPWh0dHAlM0ElMkYlMkZ3d3cueW91dHViZS5jb20lMkZzdGF0aWMlMkYlM0ZuZXclM0RodHRwcyUzQSUyRiUyRnN0YXRpYy55b3V0dWJlLmNvbSUyRnN0YXRpYyUyRmE/dHlwZW9uJTNEJTNEbGF6eW8mYW1wO2Rlc2NyaXB0aW9uJTNEJTNEVGhpcyUyMHNwbGl0cyUyMGluY2x1ZGUgYW5kIHNob3cgZW5jb3VyYWdlLg== 
     </div>
 </body>
