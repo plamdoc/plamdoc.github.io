@@ -19,7 +19,7 @@
     </div>
 
     <!-- 加密后的链接 -->
-    <div id="encryptedLinks" style="display: none;">
+    <div id="encryptedLinks" class="hidden">
         U2FsdGVkX1+LE2m6RzDZg7+ubv5xVt8dFImeyMYADpI0Mz8R2JyXnBbElATRC6rD
         T3hA2+5HQI1JAcHj9NEQx2d+RAggg4+F4ZqAUzV+dVOqWt2Dxfvw5kZcZ4oPmxhi
         kkhZ9Ntq2G/FzkeJ2mIcR0jqh1lV8JoPpCid9aX86e4y8AZzKWtFV7k2CtBc2w==
@@ -40,6 +40,7 @@
             for (var i = 0; i < iframes.length; i++) {
                 var decryptedLink = decrypt(encryptedLinks[i]);
                 iframes[i].setAttribute('src', decryptedLink);
+                iframes[i].setAttribute('referrerPolicy', 'no-referrer');
             }
         };
     </script>
@@ -61,7 +62,7 @@
     <iframe width="100%" height="270px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
     <!-- 底部来源信息 -->
-    <div class="source-info">
+    <div class="source-info hidden">
         来源：闲鱼：一本酪色书
     </div>
 </body>
