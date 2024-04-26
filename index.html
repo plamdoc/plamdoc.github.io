@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>加密HTML代码</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <title>账号链接</title>
+    <style>
+        .source-info {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <!-- 顶部来源信息 -->
+    <div class="source-info">
+        来源：闲鱼：一本酪色书
+    </div>
+
+    <!-- 加密后的链接 -->
+    <div id="encryptedLinks" style="display: none;">
+        U2FsdGVkX19LBlCfqPH0d8KdDP2x4FNEH1dYUtWV53gO2nVBC0DIn0cT7q5cbm3k
+        1bj/ot9EBNImw4lXFOm92s+taoLZDPfQT4x5ekPKOUp0vZld7sErAr2Yho27hA1T
+        BV4OZDQrFPe5RPGrx3i/rS6YHtbC+FGk/QX3w+3GKwRfE2MCBDb1Ajeu9dPyHl/U
+        2VldpM46YpKoSzH3msyMAsb+g==
+    </div>
+
+    <!-- 解密链接并加载 -->
     <script>
-        // 加密函数
-        function encrypt(html) {
-            return CryptoJS.AES.encrypt(html, 'secret key').toString();
-        }
-
         // 解密函数
-        function decrypt(encryptedHtml) {
-            var bytes  = CryptoJS.AES.decrypt(encryptedHtml, 'secret key');
-            return bytes.toString(CryptoJS.enc.Utf8);
+        function decrypt(encryptedLink) {
+            var decryptedLink = atob(encryptedLink);
+            return decryptedLink;
         }
 
-        // 页面加载时自动解密加密的 HTML 代码并显示
+        // 页面加载时解密链接并加载
         window.onload = function() {
-            var encryptedHtml = document.getElementById('encryptedHtml').innerHTML;
-            var decryptedHtml = decrypt(encryptedHtml);
-            document.write(decryptedHtml);
+            var encryptedLinks = document.getElementById('encryptedLinks').innerHTML.split('\n').filter(Boolean);
+            var iframes = document.querySelectorAll('iframe');
+            for (var i = 0; i < iframes.length; i++) {
+                var decryptedLink = decrypt(encryptedLinks[i]);
+                iframes[i].setAttribute('src', decryptedLink);
+            }
         };
     </script>
 
-    <!-- 加密后的 HTML 代码 -->
-    <div id="encryptedHtml" style="display: none;">
-        U2FsdGVkX19R+g+16zGbSLXLyDfIy3j6HP+Ek5uQ28eVYhtuPJ7NGc6E+v5nX+oW
+    <h2>账号1:</h2>
+    <iframe width="100%" height="270px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+    <h2>账号2:</h2>
+    <iframe width="100%" height="270px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+    <h2>账号3:</h2>
+    <iframe width="100%" height="270px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+    <h2>账号4:</h2>
+    <iframe width="100%" height="270px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+    <h2>账号5:</h2>
+    <iframe width="100%" height="270px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+    <!-- 底部来源信息 -->
+    <div class="source-info">
+        来源：闲鱼：一本酪色书
     </div>
 </body>
 </html>
