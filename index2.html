@@ -3,58 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>展示 JSON 数据</title>
+    <title>提取Apple ID</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- 导入 jQuery 库 -->
-    <style>
-        /* 在这里添加你的 CSS 样式 */
-    </style>
 </head>
 <body>
 
-<div id="card-container">
-    <!-- 这里将会动态添加生成的卡片 -->
+<div id="apple-id-container">
+    <!-- 这里将会动态添加提取的 Apple ID 部分 -->
 </div>
 
 <script>
     $(document).ready(function() {
-        var jsonDataUrls = [
-            "/free.json", 
-            "https://apple.laogoubi.net/p/2b2338b6f87c4b863de9efa27ab3848a", 
-            // 这里放入其他 JSON 数据的 URL
-        ];
-        let hasNormalStatus = false;
-        jsonDataUrls.forEach(function(jsonDataUrl) {
-            $.getJSON(jsonDataUrl, function(result) {
-                $.each(result, function(index, item) {
-                    if ((item.status === 1) || (item.status === true)) {
-                        item.status = '正常';
-                        hasNormalStatus = true;
-                        var card = `
- <div data-id="_inprocess" data-order="1" class="rounded-xl shadow-lg kanban-board kanban-5" style="background-color: #fff; margin-left: 5px; margin-right: 5px;margin-bottom: 10px;">
- <div class="rounded-xl shadow-lg card">
- <div class="rounded-xl shadow-lg card-header">
- <strong>状态：<code>${item.status}</code> 地区：<code>${item.country}</code><br>检测时间：<code>${item.time}</code></strong>
- </div>
- <div class="rounded-xl shadow-lg card-body">
- <div class="rounded-xl shadow-lg kanban-item copy-text cursor_onclick" data-clipboard-text="${item.username}" style="width: 200px; height: 50px; overflow: hidden; white-space: nowrap;">
- <strong>账号：<code>${item.username}</code></strong>
- </div>
- <div class="rounded-xl shadow-lg kanban-item copy-text cursor_onclick" data-clipboard-text="${item.password}" style="width: 200px; height: 50px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
- <strong>密码：<code>${item.password}</code></strong>
- </div>
- </div>
- </div>
- </div>
- `;
-                        $("#card-container").append(card);
-                    }
-                });
-                if (!hasNormalStatus) {
-                    var card = ` <div data-id="_inprocess" data-order="1" class="rounded-xl shadow-lg kanban-board kanban-5" style="background-color: #fff; margin-left: 5px; margin-right: 5px;margin-bottom: 10px;"><div class="rounded-xl shadow-lg card"><div class="rounded-xl shadow-lg card-header"> <strong><code>ID异常了，您过几分钟再刷新页面查看</code></strong></div></div></div> `;
-                    $("#card-container").append(card);
-                }
-            });
-        });
+        // 要提取的网页 URL
+        var url = "https://free.dabai.in/free#id";
+
+        // 创建 XMLHttpRequest 对象
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // 从响应中提取已购 Shadowrocket 部分的内容
+                var appleIdContent = $(xhr.responseText).find("#boughtshadowrocket").html();
+                // 将提取的内容添加到页面上
+                $("#apple-id-container").html(appleIdContent);
+            }
+        };
+        // 打开请求并发送
+        xhr.open("GET", url, true);
+        // 设置不发送 Referer 头
+        xhr.setRequestHeader("Referrer-Policy", "no-referrer");
+        xhr.send();
     });
 </script>
 
