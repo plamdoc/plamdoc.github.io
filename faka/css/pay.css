@@ -132,15 +132,15 @@ body, .body {
 }
 
 .ico-1 {
-    background: url("./images/ali.jpg") no-repeat;
+    background: url("faka/images/ali.jpg") no-repeat;
 }
 
 .ico-2 {
-    background: url("./images/qqpay.jpg") no-repeat;
+    background: url("faka/images/qqpay.jpg") no-repeat;
 }
 
 .ico-3 {
-    background: url("./images/weixi.jpg") no-repeat;
+    background: url("faka/images/weixi.jpg") no-repeat;
 }
 
 .mod-title .text {
@@ -155,7 +155,7 @@ body, .body {
     max-width: 640px;
     margin: 0 auto;
     margin-top: 15px;
-    background: #fff url("/images/wave.png") top center repeat-x;
+    background: #fff url("faka/images/wave.png") top center repeat-x;
     text-align: center;
     color: #333;
     border: 1px solid #e5e5e5;
@@ -192,7 +192,7 @@ body, .body {
     display: inline-block;
     width: 20px;
     height: 11px;
-    background: url("/images/pay.png") -25px -100px no-repeat
+    background: url("faka/images/pay.png") -25px -100px no-repeat
 }
 
 .mod-ct .detail .detail-ct {
@@ -219,14 +219,14 @@ body, .body {
     display: inline-block;
     width: 20px;
     height: 11px;
-    background: url("/images/wecha.png") -25px -100px no-repeat
+    background: url("faka/images/wecha.png") -25px -100px no-repeat
 }
 
 .mod-ct .detail-open .arrow .ico-arrow {
     display: inline-block;
     width: 20px;
     height: 11px;
-    background: url("/images/wecha.png") 0 -100px no-repeat
+    background: url("faka/images/wecha.png") 0 -100px no-repeat
 }
 
 .mod-ct .detail-open .detail-ct {
@@ -244,7 +244,7 @@ body, .body {
     display: inline-block;
     width: 56px;
     height: 55px;
-    background: url("/images/wecha.png") 0 0 no-repeat;
+    background: url("faka/images/wecha.png") 0 0 no-repeat;
     vertical-align: middle;
     *display: inline;
     *zoom: 1
@@ -265,7 +265,7 @@ body, .body {
     display: inline-block;
     width: 0px;
     height: 45px;
-    background: url("/images/wecha.png") 0 -55px no-repeat;
+    background: url("faka/images/wecha.png") 0 -55px no-repeat;
     position: absolute;
     top: -23px
 }
