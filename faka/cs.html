@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动发卡平台</title>
+    <!-- 引入Bootstrap样式 -->
+    <link rel="stylesheet" href="https://s4210.gitee.io/blog/css/bootstrap.min.css">
+    <!-- 引入SweetAlert2样式 -->
+    <link rel="stylesheet" href="https://s4210.gitee.io/blog/css/sweetalert2.min.css">
+    <!-- 引入FontAwesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        /* 自定义联系客服按钮样式 */
+        #contact-button {
+            font-size: 14px; /* 调整字体大小 */
+            padding: 5px 10px; /* 调整按钮内边距，可以根据需要进行调整 */
+        }
+    </style>
+    <script type="text/javascript">
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "09245753-b3b7-43df-9358-02d0194d8dd6";
+        (function() {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="text-center">自动发卡平台</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- 购买须知公告 -->
+                        <div class="alert alert-info">
+                            <strong>购买须知<用户必看></strong><br>
+                            1.<a href="https://cnotion.notion.site/b7197fc7de214c268f3dcb170b421b24" target="_blank">各种教程详情请点击此链接</a><br>
+                            2. 联系方式和邮箱可以作为你的提卡凭证<br>
+                            3. 必须等待付款完成自动跳转，不可提前关闭页面<br>
+                            4. 付款后若未跳转，请点击网页右下角在线客服~
+                        </div>
+                        <!-- 商品分类选择 -->
+                        <div class="form-group">
+                            <label for="category">选择商品分类：</label>
+                            <select id="category" class="form-control">
+                                <option value="category1">魔法上网</option>
+                                <option value="category2">软件账号</option>
+                                <option value="category3">破解软件</option>
+                            </select>
+                        </div>
+                        <!-- 商品选择 -->
+                        <div class="form-group">
+                            <label for="product">选择商品：</label>
+                            <select id="product" class="form-control">
+                                <!-- 商品选项将根据所选分类动态更新 -->
+                            </select>
+                        </div>
+                        <!-- 商品介绍 -->
+                        <div id="product-description" class="alert alert-info">
+                            <!-- 商品介绍内容将在JavaScript中动态更新 -->
+                        </div>
+                        <!-- 邮箱输入 -->
+                        <div class="form-group">
+                            <label for="email">输入邮箱或联系方式：</label>
+                            <input type="email" id="email" class="form-control" placeholder="您的邮箱">
+                        </div>
+                        <!-- 支付方式选择 -->
+                        <div class="form-group">
+                            <label>选择支付方式：</label>
+                            <div class="form-check">
+                                <input type="radio" id="wechat" name="payment" value="wechat" class="form-check-input">
+                                <label for="wechat" class="form-check-label">
+                                    <i class="fab fa-weixin fa-2x"></i> 微信支付
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="alipay" name="payment" value="alipay" class="form-check-input">
+                                <label for="alipay" class="form-check-label">
+                                    <i class="fab fa-alipay fa-2x"></i> 支付宝支付
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 确认订单按钮 -->
+                        <button id="confirm-button" class="btn btn-primary btn-block">确认订单</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗部分 -->
+    <script src="https://s4210.gitee.io/blog/js/sweetalert2.min.js"></script>
+    <script>
+        // 商品数据，根据分类不同可以进行动态更新
+        var products = {
+            category1: ["安卓&鸿蒙端通用加速器", "苹果端&ipad端加速器","Win端加速器", "Mac端加速器"],
+            category2: ["谷歌邮箱人工", "推特成品账号", "ChatGPT账号", "instagram账号", "Telegram账号"],
+            category3: ["Tiktok企业签名内部版"],
+        };
+
+        // 商品介绍数据，每个商品都有独自的介绍和价格
+        var productDescriptions = {
+            // ...（保留不变）
+        };
+
+        // 初始化商品下拉列表
+        function initProductSelect() {
+            var selectedCategory = categorySelect.value;
+            productSelect.innerHTML = "";
+            products[selectedCategory].forEach(function (product) {
+                var option = document.createElement("option");
+                option.text = product;
+                productSelect.add(option);
+            });
+        }
+
+        // 更新商品介绍和价格
+        function updateProductDescription() {
+            var selectedProduct = productSelect.value;
+            var descriptionElement = document.getElementById("product-description");
+            if (productDescriptions[selectedProduct]) {
+                var description = productDescriptions[selectedProduct].description;
+                var price = productDescriptions[selectedProduct].price;
+                descriptionElement.innerHTML = `<p>${description}</p><p>${price}</p>`;
+            } else {
+                descriptionElement.innerHTML = "";
+            }
+        }
+
+        // 监听商品分类选择改变事件
+        var categorySelect = document.getElementById("category");
+        var productSelect = document.getElementById("product");
+        categorySelect.addEventListener("change", function () {
+            initProductSelect(); // 更新商品选择框
+            updateProductDescription(); // 更新商品介绍
+        });
+
+        // 商品选择框改变事件
+        productSelect.addEventListener("change", function () {
+            updateProductDescription(); // 更新商品介绍
+        });
+
+        // 初始化
+        initProductSelect();
+        updateProductDescription(); // 初始化时更新商品介绍
+
+        // 监听确认订单按钮点击事件
+        var confirmButton = document.getElementById("confirm-button");
+        confirmButton.addEventListener("click", function () {
+            // ...（未更改）
+        });
+    </script>
+
+    <!-- 点击客服按钮 -->
+    <button id="contact-button" class="btn btn-info btn-block contact-btn">
+        <i class="fas fa-comments"></i> 联系客服
+    </button>
+
+    <!-- JavaScript代码，处理按钮点击事件并打开链接 -->
+    <script>
+        var contactButton = document.getElementById("contact-button");
+
+        contactButton.addEventListener("click", function () {
+            // 在这里设置您希望链接的目标
+            var contactUrl = "https://sharechain.qq.com/0e6bfa83fcf4a8da0dde73e2e63a4ea4"; // 将链接替换为您的客服页面链接
+            window.open(contactUrl, "_blank");
+        });
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>
