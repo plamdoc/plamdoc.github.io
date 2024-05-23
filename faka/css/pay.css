@@ -132,15 +132,15 @@ body, .body {
 }
 
 .ico-1 {
-    background: url("/images/ali.jpg") no-repeat;
+    background: url("./images/ali.jpg") no-repeat;
 }
 
 .ico-2 {
-    background: url("/images/qqpay.jpg") no-repeat;
+    background: url("./images/qqpay.jpg") no-repeat;
 }
 
 .ico-3 {
-    background: url("/images/weixi.jpg") no-repeat;
+    background: url("./images/weixi.jpg") no-repeat;
 }
 
 .mod-title .text {
