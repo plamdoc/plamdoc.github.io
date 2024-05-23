@@ -202,10 +202,10 @@ confirmButton.addEventListener("click", function () {
         var paymentUrl = "";
         if (paymentMethod === "wechat") {
             // 拼接支付链接，将商品参数和价格传递给wxpay.php
-            paymentUrl = "wxpay.php?product=" + selectedProduct + "&price=" + productPrice + "&email=" + userEmail;
+            paymentUrl = "wxpay.html?product=" + selectedProduct + "&price=" + productPrice + "&email=" + userEmail;
         } else if (paymentMethod === "alipay") {
             // 拼接支付链接，将商品参数和价格传递给alipay.php
-            paymentUrl = "alipay.php?product=" + selectedProduct + "&price=" + productPrice + "&email=" + userEmail;
+            paymentUrl = "alipay.html?product=" + selectedProduct + "&price=" + productPrice + "&email=" + userEmail;
         }
 
         // 使用SweetAlert2弹窗显示订单信息，包括订单编号和支付链接
