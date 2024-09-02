@@ -59,15 +59,22 @@
         }
         .media-container {
             margin-top: 30px;
-            text-align: center;
         }
-        .media {
+        .media-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .media-item img,
+        .media-item video {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            display: block;
-            margin: 20px auto;
+        }
+        .media-item p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
         }
         .button-container {
             margin-top: 30px;
@@ -107,16 +114,37 @@
         
         <!-- 媒体容器 -->
         <div class="media-container">
-            <!-- 视频 -->
-            <video controls class="media">
-                <source src="https://new-service.biliapi.net/picture/chatres/102d1b48515346ec8e9fb543b54ec454/msg/20231229/fd694d9a4c89445a9a28ab7c93ab84a4.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            <video controls class="media">
-                <source src="https://new-service.biliapi.net/picture/chatres/102d1b48515346ec8e9fb543b54ec454/msg/20231229/01a39002fe5f403f9a295d5abb008f1b.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            
+            <!-- 图片1 -->
+            <div class="media-item">
+                <img src="https://i0.hdslb.com/bfs/custom_new/ecce7c4f4e5b03078165921158f5126a3461580389878058.jpg" alt="图片1">
+                <p>加速器界面截图1</p>
+            </div>
+            <!-- 图片2 -->
+            <div class="media-item">
+                <img src="https://i0.hdslb.com/bfs/custom_new/1b1e3259fa365379b076151c6f9ef2d23461580389878058.jpg" alt="图片2">
+                <p>加速器界面截图2</p>
+            </div>
+            <!-- 图片3 -->
+            <div class="media-item">
+                <img src="https://i0.hdslb.com/bfs/custom_new/955d0bbcf0884fc0d542f1b2a24de74c3461580389878058.jpg" alt="图片3">
+                <p>加速器界面截图3</p>
+            </div>
+            <!-- 视频1 -->
+            <div class="media-item">
+                <video controls>
+                    <source src="https://jssz-boss.hdslb.com/customer-video-upload/95be1be53e63201bd5d72cc15198c15e.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=f9TxwsagojnE1DWM%2F20240902%2Fjssz%2Fs3%2Faws4_request&X-Amz-Date=20240902T020347Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=f7714f8ccb92cf50799d897b3619594c4fa9eb479b2e552b18c809ea0b12ed27" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+                <p>加速器使用演示视频1</p>
+            </div>
+            <!-- 视频2 -->
+            <div class="media-item">
+                <video controls>
+                    <source src="https://jssz-boss.hdslb.com/customer-video-upload/0af68b4deb9c090bfb4ef95a9e647255.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=f9TxwsagojnE1DWM/20240902/jssz/s3/aws4_request&X-Amz-Date=20240902T020353Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=45f91c7f0f05cacbf10962e29dd2161ae8b6c6ac39142f45f9319f9e1a729f82" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+                <p>加速器使用演示视频2</p>
+            </div>
         </div>
 
         <!-- 分隔线 -->
