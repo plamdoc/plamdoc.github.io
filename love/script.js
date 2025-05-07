@@ -52,7 +52,7 @@ const loveTest = `!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${
 }`;
 
 function calculateLoveTime() {
-  const startDate = new Date('2025-03-10T00:00:00');
+  const startDate = new Date('2025-02-10T00:00:00');
   const currentDate = new Date();
   const timeDifference = currentDate - startDate;
 
