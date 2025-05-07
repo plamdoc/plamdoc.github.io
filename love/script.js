@@ -64,7 +64,7 @@ const loveTest = `!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${
 // 计算并格式化在一起的时间
 function calculateLoveTime() {
   // 设置起始日期为 2025 年 5 月 19 日
-  const startDate = new Date('2025-05-19T00:00:00');
+  const startDate = new Date('2025-05-07T00:00:00');
   const currentDate = new Date();
   const timeDifference = currentDate - startDate;
 
@@ -92,7 +92,7 @@ function updateTimeDisplay() {
     const { days, hours, minutes, seconds } = calculateLoveTime();
     timeElement.innerHTML = `我们已经相爱了：<br>
                              ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒<br>
-                             （24小时制）`;
+                             `;
   }
 }
 
