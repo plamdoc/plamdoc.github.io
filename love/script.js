@@ -81,7 +81,7 @@ yesButton.addEventListener("click", function () {
 
 // 计算并显示在一起的天数
 function calculateDaysTogether() {
-  // 修改起始日期为 2024 年 5 月 19 日
+  // 设置起始日期为 2024 年 5 月 19 日
   const startDate = new Date('2024-05-19T00:00:00');
   const currentDate = new Date();
   const timeDifference = currentDate - startDate;
