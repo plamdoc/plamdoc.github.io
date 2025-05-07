@@ -2,8 +2,6 @@ let yesButton = document.getElementById("yes");
 let noButton = document.getElementById("no");
 let questionText = document.getElementById("question");
 let mainImage = document.getElementById("mainImage");
-// 获取显示在一起天数的元素
-let daysTogetherElement = document.getElementById("daysTogether");
 
 const params = new URLSearchParams(window.location.search);
 let username = params.get("name");
@@ -63,33 +61,32 @@ const loveTest = `!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
+// 计算并返回在一起的天数
+function calculateDaysTogether() {
+    const startDate = new Date('2024-05-19'); // 设定在一起的起始日期
+    const currentDate = new Date();
+    const timeDifference = currentDate - startDate;
+    return Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+}
+
 yesButton.addEventListener("click", function () {
-  // 先创建基础 HTML 结构
-  document.body.innerHTML = `
+    // 先创建基础 HTML 结构，添加显示天数的元素
+    document.body.innerHTML = `
         <div class="yes-screen">
             <h1 class="yes-text"></h1>
             <img src="images/hug.png" alt="拥抱" class="yes-image">
+            <div class="days-together"></div>
         </div>
     `;
 
-  // 确保用户名安全地插入
-  document.querySelector(".yes-text").innerText = loveTest;
+    // 确保用户名安全地插入
+    document.querySelector(".yes-text").innerText = loveTest;
 
-  // 禁止滚动，保持页面美观
-  document.body.style.overflow = "hidden";
+    // 计算在一起的天数
+    const days = calculateDaysTogether();
+    const daysText = `哇！我们已经携手走过了 ${days} 天啦，未来还要一起走更远🥰`;
+    document.querySelector(".days-together").innerText = daysText;
+
+    // 禁止滚动，保持页面美观
+    document.body.style.overflow = "hidden";
 });
-
-// 计算并显示在一起的天数
-function calculateDaysTogether() {
-  // 设置起始日期为 2024 年 5 月 19 日
-  const startDate = new Date('2025-05-01T00:00:00');
-  const currentDate = new Date();
-  const timeDifference = currentDate - startDate;
-  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  if (daysTogetherElement) {
-    daysTogetherElement.innerText = `哇！我们已经携手走过了 ${daysDifference} 天啦，未来还要一起走更远🥰`;
-  }
-}
-
-// 页面加载时调用计算函数
-window.addEventListener('load', calculateDaysTogether);
