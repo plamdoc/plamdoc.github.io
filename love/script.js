@@ -2,6 +2,8 @@ let yesButton = document.getElementById("yes");
 let noButton = document.getElementById("no");
 let questionText = document.getElementById("question");
 let mainImage = document.getElementById("mainImage");
+// 获取显示在一起天数的元素
+let daysTogetherElement = document.getElementById("daysTogether");
 
 const params = new URLSearchParams(window.location.search);
 let username = params.get("name");
@@ -76,3 +78,16 @@ yesButton.addEventListener("click", function () {
   // 禁止滚动，保持页面美观
   document.body.style.overflow = "hidden";
 });
+
+// 计算并显示在一起的天数
+function calculateDaysTogether() {
+  const startDate = new Date('2025-05-19T00:00:00');
+  const currentDate = new Date();
+  const timeDifference = currentDate - startDate;
+  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  // 修改显示文本，增加情感表达
+  daysTogetherElement.innerText = `哇！我们已经携手走过了 ${daysDifference} 天啦，未来还要一起走更远🥰`;
+}
+
+// 页面加载时调用计算函数
+calculateDaysTogether();
