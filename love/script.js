@@ -61,32 +61,60 @@ const loveTest = `!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
-// 计算并返回在一起的天数
-function calculateDaysTogether() {
-    const startDate = new Date('2024-05-19'); // 设定在一起的起始日期
-    const currentDate = new Date();
-    const timeDifference = currentDate - startDate;
-    return Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+// 计算并格式化在一起的时间
+function calculateLoveTime() {
+  // 设置起始日期为 2025 年 5 月 19 日
+  const startDate = new Date('2025-05-19T00:00:00');
+  const currentDate = new Date();
+  const timeDifference = currentDate - startDate;
+
+  // 计算天、时、分、秒
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+  // 格式化显示，确保两位数
+  const formatNumber = (num) => num.toString().padStart(2, '0');
+  
+  return {
+    days,
+    hours: formatNumber(hours),
+    minutes: formatNumber(minutes),
+    seconds: formatNumber(seconds)
+  };
+}
+
+// 更新时间显示
+function updateTimeDisplay() {
+  const timeElement = document.getElementById('loveTime');
+  if (timeElement) {
+    const { days, hours, minutes, seconds } = calculateLoveTime();
+    timeElement.innerHTML = `我们已经相爱了：<br>
+                             ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒<br>
+                             （24小时制）`;
+  }
 }
 
 yesButton.addEventListener("click", function () {
-    // 先创建基础 HTML 结构，添加显示天数的元素
-    document.body.innerHTML = `
-        <div class="yes-screen">
-            <h1 class="yes-text"></h1>
-            <img src="images/hug.png" alt="拥抱" class="yes-image">
-            <div class="days-together"></div>
-        </div>
-    `;
+  // 创建表白成功页面，添加时间显示元素
+  document.body.innerHTML = `
+    <div class="yes-screen">
+      <h1 class="yes-text"></h1>
+      <img src="images/hug.png" alt="拥抱" class="yes-image">
+      <div id="loveTime" class="days-together"></div>
+    </div>
+  `;
 
-    // 确保用户名安全地插入
-    document.querySelector(".yes-text").innerText = loveTest;
+  // 设置表白文本
+  document.querySelector(".yes-text").innerText = loveTest;
+  
+  // 首次更新时间
+  updateTimeDisplay();
+  
+  // 每秒更新一次时间
+  setInterval(updateTimeDisplay, 1000);
 
-    // 计算在一起的天数
-    const days = calculateDaysTogether();
-    const daysText = `哇！我们已经携手走过了 ${days} 天啦，未来还要一起走更远🥰`;
-    document.querySelector(".days-together").innerText = daysText;
-
-    // 禁止滚动，保持页面美观
-    document.body.style.overflow = "hidden";
+  // 禁止滚动
+  document.body.style.overflow = "hidden";
 });
