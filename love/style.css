@@ -1,5 +1,5 @@
 body {
-    background-color: #f1d5da; /* 浅粉色 */
+    background-color: #f1d5da; /* 浅粉色背景 */
     text-align: center;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,113 +8,138 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* 防止滚动 */
 }
 
 .container {
     width: 90%; /* 适应手机屏幕宽度 */
     max-width: 500px; /* 最大宽度限制 */
+    padding: 20px;
 }
 
 #mainImage {
     width: 100%; /* 图片宽度自适应容器 */
     max-width: 200px; /* 最大宽度限制 */
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
 h1 {
-    font-size: 5vw; /* 字体大小根据视口宽度变化 */
-    color: #68495b;
-    margin: 20px 0; /* 增加上下间距 */
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* 响应式字体大小 */
+    color: #68495b; /* 深粉色文字 */
+    margin: 20px 0;
+    line-height: 1.3;
 }
 
 button {
-    font-size: 4vw; /* 字体大小根据视口宽度变化 */
-    padding: 10px 20px;
+    font-size: clamp(1rem, 4vw, 1.5rem); /* 响应式字体大小 */
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    margin: 10px;
+    margin: 15px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 #yes {
-    background-color: #d4818e; /* 粉色 */
+    background-color: #d4818e; /* 粉色按钮 */
     color: white;
+    font-weight: bold;
 }
 
 #no {
-    background-color: #6784b1; /* 蓝色 */
+    background-color: #6784b1; /* 蓝色按钮 */
     color: white;
-    position: relative;
+    font-weight: bold;
 }
 
 .yes-screen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffdae0; /* 粉色 */
+    width: 100%;
+    height: 100%;
+    background-color: #ffdae0; /* 淡粉色背景 */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .yes-text {
-    font-size: 7vw; /* 字体大小根据视口宽度变化 */
+    font-size: clamp(1.8rem, 7vw, 3rem); /* 响应式字体大小 */
+    color: #68495b;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .yes-image {
     width: 50%; /* 图片宽度自适应容器 */
     max-width: 300px; /* 最大宽度限制 */
+    margin-bottom: 30px;
+    animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
 }
 
-/* 新增显示天数元素的样式 */
+/* 浮动动画 */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 时间显示样式 */
 .days-together {
-    font-size: 4vw;
+    font-size: clamp(1.2rem, 3vw, 1.8rem); /* 响应式字体大小 */
     color: #68495b;
-    margin-top: 20px;
+    margin-top: 2rem;
+    padding: 1.2rem 1.8rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* 电脑端样式优化 */
 @media (min-width: 768px) {
-    body {
-        display: block;
-    }
-
     .container {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: auto;
-        max-width: none;
     }
 
     #mainImage {
-        width: 200px; /* 固定图片宽度 */
+        width: 220px;
     }
 
     h1 {
-        font-size: 28px; /* 固定字体大小 */
-        margin: 20px 0;
+        font-size: 2.5rem;
     }
 
     button {
-        font-size: 18px; /* 固定字体大小 */
+        font-size: 1.5rem;
+        padding: 15px 30px;
     }
 
     .yes-text {
-        font-size: 36px; /* 固定字体大小 */
+        font-size: 3.5rem;
     }
 
     .yes-image {
-        width: 300px; /* 固定图片宽度 */
+        width: 320px;
     }
 
-    /* 电脑端显示天数元素字体大小 */
     .days-together {
-        font-size: 18px;
+        font-size: 1.8rem;
     }
 }
