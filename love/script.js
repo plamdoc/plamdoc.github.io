@@ -81,7 +81,7 @@ yesButton.addEventListener("click", function () {
 
 // 计算并显示在一起的天数
 function calculateDaysTogether() {
-  const startDate = new Date('2025-05-19T00:00:00');
+  const startDate = new Date('2025-05-01T00:00:00');
   const currentDate = new Date();
   const timeDifference = currentDate - startDate;
   const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
