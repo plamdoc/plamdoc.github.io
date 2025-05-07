@@ -70,6 +70,13 @@ button {
     max-width: 300px; /* 最大宽度限制 */
 }
 
+/* 新增显示天数元素的样式 */
+.days-together {
+    font-size: 4vw;
+    color: #68495b;
+    margin-top: 20px;
+}
+
 /* 电脑端样式优化 */
 @media (min-width: 768px) {
     body {
@@ -105,15 +112,9 @@ button {
     .yes-image {
         width: 300px; /* 固定图片宽度 */
     }
-}
 
-/* 新增天数显示样式 */
-.days-together {
-    font-size: 24px;
-    color: #68495b;
-    margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* 电脑端显示天数元素字体大小 */
+    .days-together {
+        font-size: 18px;
+    }
 }
