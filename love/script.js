@@ -81,13 +81,13 @@ yesButton.addEventListener("click", function () {
 
 // 计算并显示在一起的天数
 function calculateDaysTogether() {
-  const startDate = new Date('2025-05-01T00:00:00');
+  // 修改起始日期为 2024 年 5 月 19 日
+  const startDate = new Date('2024-05-19T00:00:00');
   const currentDate = new Date();
   const timeDifference = currentDate - startDate;
   const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  // 修改显示文本，增加情感表达
   daysTogetherElement.innerText = `哇！我们已经携手走过了 ${daysDifference} 天啦，未来还要一起走更远🥰`;
 }
 
 // 页面加载时调用计算函数
-calculateDaysTogether();
+window.addEventListener('load', calculateDaysTogether);
