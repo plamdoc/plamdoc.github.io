@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="美区 Apple ID 卡密使用说明与常见问题自助排查">
+  <title>美区 Apple ID 知识库 · 常见问题</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --card: #fff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: #e5e5ea;
+      --accent: #0071e3;
+      --accent-soft: #e8f2fd;
+      --warn: #ff9500;
+      --warn-bg: #fff8e6;
+      --danger: #ff3b30;
+      --danger-bg: #fff0ef;
+      --ok: #34c759;
+      --sidebar-w: 260px;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topbar h1 {
+      font-size: 17px;
+      margin: 0;
+      font-weight: 600;
+      flex: 1;
+      min-width: 180px;
+    }
+    .search-wrap { flex: 2; min-width: 200px; max-width: 420px; }
+    .search-wrap input {
+      width: 100%;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      background: var(--bg);
+    }
+    .search-wrap input:focus { border-color: var(--accent); background: #fff; }
+  .topbar a.back { font-size: 14px; color: var(--muted); white-space: nowrap; }
+    .topbar-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .topbar-actions a { font-size: 14px; white-space: nowrap; }
+    .topbar-actions a.query { color: var(--accent); font-weight: 600; }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .quick-links a {
+      display: inline-block;
+      padding: 10px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--accent);
+    }
+    .quick-links a:hover { background: var(--accent-soft); border-color: #c5ddf7; }
+    .quick-links a.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .quick-links a.primary:hover { background: #005bb5; }
+  .quick-links a.primary:hover { background: #005bb5; }
+    a.action-link { font-weight: 600; }
+    a[target="_blank"]::after {
+      content: " ↗";
+      font-size: 11px;
+      opacity: .65;
+      font-weight: normal;
+    }
+    nav#nav a[target="_blank"]::after,
+    .card-header a[target="_blank"]::after { content: none; }
+
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 24px;
+      padding: 20px;
+    }
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      position: sticky;
+      top: 72px;
+      align-self: flex-start;
+      max-height: calc(100vh - 88px);
+      overflow-y: auto;
+    }
+    .sidebar nav {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 0;
+    }
+    .sidebar nav a {
+      display: block;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+    }
+    .sidebar nav a:hover { background: var(--bg); color: var(--accent); }
+    .sidebar nav a.active { border-left-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+    .sidebar .nav-group { font-size: 11px; color: var(--muted); padding: 10px 16px 4px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+
+    .main { flex: 1; min-width: 0; }
+
+    .hero {
+      background: linear-gradient(135deg, #0071e3 0%, #5856d6 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+    .hero h2 { margin: 0 0 8px; font-size: 22px; }
+    .hero p { margin: 0; opacity: .92; font-size: 14px; }
+
+    /* 主流程引导 */
+    .main-flow {
+      background: var(--card);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .main-flow-head {
+      background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+      color: #fff;
+      padding: 18px 22px;
+    }
+    .main-flow-head h2 { margin: 0 0 6px; font-size: 18px; }
+    .main-flow-head p { margin: 0; font-size: 13px; opacity: .9; }
+    .main-flow-body { padding: 20px 22px 24px; }
+    .flow-overview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+    .flow-overview span {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .flow-overview .arrow { color: var(--muted); padding: 5px 2px; background: none; }
+    .flow-timeline { position: relative; }
+    .flow-step {
+      position: relative;
+      padding-left: 48px;
+      padding-bottom: 24px;
+    }
+    .flow-step:last-child { padding-bottom: 0; }
+    .flow-step::before {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 36px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .flow-step:last-child::before { display: none; }
+    .flow-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 36px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,113,227,.35);
+    }
+    .flow-step h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 36px;
+    }
+    .flow-step .flow-desc { font-size: 14px; color: var(--text); margin: 0 0 10px; }
+    .flow-actions {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      margin: 0;
+    }
+    .flow-actions li { margin: 6px 0; }
+    .flow-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+    }
+    .flow-note.warn { background: var(--warn-bg); border-color: #ffe0a3; color: #7a5b00; }
+    .flow-note.danger { background: var(--danger-bg); border-color: #ffc9c5; color: #a12a22; }
+    .flow-branch {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--bg);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+    .flow-branch strong { color: var(--accent); }
+
+    .alert {
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .alert-warn { background: var(--warn-bg); border: 1px solid #ffe0a3; }
+    .alert-danger { background: var(--danger-bg); border: 1px solid #ffc9c5; }
+    .alert-info { background: var(--accent-soft); border: 1px solid #c5ddf7; }
+    .alert strong { display: block; margin-bottom: 4px; }
+
+    .rules-block {
+      background: linear-gradient(145deg, #fff5f4 0%, #fff 42%);
+      border: 1px solid #ffd4d0;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(255, 59, 48, .06);
+    }
+    .rules-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid #ffe8e6;
+      background: linear-gradient(90deg, rgba(255,59,48,.08) 0%, transparent 100%);
+    }
+    .rules-header h2 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #c41e16;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rules-header h2::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--danger);
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(255, 59, 48, .25);
+    }
+    .rules-header p {
+      margin: 0;
+      font-size: 13px;
+      color: #8a4a45;
+    }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 14px;
+    }
+    .rule-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid #ffe8e6;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .rule-item.rule-wide {
+      grid-column: 1 / -1;
+    }
+    .rule-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #ff6b6b, #e8342a);
+      border-radius: 8px;
+    }
+    .rule-body strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .rule-body p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .rule-body .tag-forbid {
+      color: #c41e16;
+      font-weight: 600;
+    }
+    .rule-body .tag-ok {
+      color: #1a7f37;
+      font-weight: 600;
+    }
+
+    .card {
+      background: #f8f9fb;
+      border: 1px solid #e3e4e8;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s, background .2s, margin .2s;
+    }
+    .card:not(.open) .card-header {
+      padding: 11px 16px;
+    }
+    .card:not(.open) .card-header h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #5c5c66;
+    }
+    .card:not(.open):hover {
+      background: #fff;
+      border-color: #d0d2d8;
+    }
+    .card:not(.open):hover .card-header h3 {
+      color: var(--text);
+    }
+    .card.open {
+      background: #fff;
+      border: 1px solid #9ec5ef;
+      box-shadow: 0 6px 24px rgba(0, 113, 227, .1);
+      margin-bottom: 22px;
+    }
+    .main:has(.card.open) .card:not(.open) {
+      opacity: 0.78;
+    }
+    .main:has(.card.open) .card:not(.open):hover {
+      opacity: 1;
+    }
+    .card-header {
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      transition: background .2s;
+    }
+    .card:not(.open) .card-header:hover { background: rgba(0, 0, 0, .02); }
+    .card.open .card-header {
+      background: linear-gradient(105deg, #e8f2fd 0%, #f7fbff 55%, #fff 100%);
+      border-bottom: 1px solid #cfe3f8;
+      padding: 16px 20px;
+    }
+    .card-header h3 { margin: 0; font-size: 16px; flex: 1; line-height: 1.35; }
+    .card.open .card-header h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0a4d8c;
+    }
+    .card-header .tag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--bg);
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .card.open .card-header .tag {
+      background: #fff;
+      color: var(--accent);
+      border: 1px solid #c5ddf7;
+    }
+    .card-header .chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform .2s, color .2s;
+      color: #aeaeb2;
+    }
+    .card.open .card-header .chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .card-body {
+      padding: 0 20px 22px;
+      display: none;
+      background: #fff;
+      font-size: 14px;
+      color: #2c2c2e;
+    }
+    .card.open .card-body {
+      display: block;
+      border-top: 3px solid var(--accent);
+    }
+    .card-body > :first-child { margin-top: 18px; }
+    .card-body h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1d1d1f;
+      margin: 22px 0 10px;
+      padding: 8px 12px;
+      background: #f5f6f8;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+    .card-body h4:first-of-type { margin-top: 4px; }
+    .card-body p { margin: 8px 0; line-height: 1.7; }
+    .card-body .alert { margin-top: 12px; }
+
+    .card-section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 28px 0 12px;
+      padding-left: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .card-section-label:first-of-type { margin-top: 8px; }
+
+    .steps { list-style: none; padding: 0; margin: 12px 0; }
+    .steps li {
+      position: relative;
+      padding: 8px 0 8px 32px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 22px;
+      height: 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 12px;
+      line-height: 22px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    table.kw {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 12px 0;
+    }
+    table.kw th, table.kw td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    table.kw th { background: var(--bg); font-weight: 600; }
+    table.kw td a { font-weight: 500; }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+  .do-dont div { padding: 12px 14px; border-radius: 10px; font-size: 14px; }
+    .do { background: #e8f8ec; border: 1px solid #b8e6c8; }
+    .dont { background: var(--danger-bg); border: 1px solid #ffc9c5; }
+    .do strong, .dont strong { display: block; margin-bottom: 6px; }
+
+    ul.check { padding-left: 20px; }
+    ul.check li { margin: 6px 0; }
+
+    .hidden-by-search { display: none !important; }
+    .no-result {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .journey-section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .journey-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow .2s, border-color .2s, transform .15s;
+      display: block;
+      cursor: pointer;
+    }
+    .journey-card:hover {
+      border-color: #c5ddf7;
+      box-shadow: 0 4px 16px rgba(0,113,227,.1);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .journey-card h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .journey-card p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .journey-card .j-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .journey-card.highlight {
+      border-color: var(--accent);
+      background: linear-gradient(165deg, var(--accent-soft) 0%, #fff 55%);
+    }
+    .path-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .path-strip a {
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.2);
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .path-strip a:hover { background: rgba(255,255,255,.32); text-decoration: none; }
+    .sticky-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 12px 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .sticky-actions a {
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .sticky-actions a.btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .sticky-actions a.btn-primary:hover { background: #005bb5; text-decoration: none; }
+    .sticky-actions a.btn-ghost {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .sticky-actions a.btn-ghost:hover { background: var(--accent-soft); text-decoration: none; }
+
+    /* 报错速查：先解决、后解释 */
+    .quick-nav-intro { font-size: 14px; color: var(--muted); margin: 0 0 14px; }
+    .issue-hub { display: flex; flex-direction: column; gap: 14px; margin: 0 0 28px; }
+    .issue-fix {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      scroll-margin-top: 88px;
+      overflow: hidden;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .issue-fix.is-target {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .issue-fix-header {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #fafbfc 0%, #fff 100%);
+    }
+    .issue-fix-header h3 { margin: 0 0 6px; font-size: 17px; line-height: 1.35; }
+    .issue-fix-header .symptom { margin: 0; font-size: 13px; color: var(--muted); }
+    .issue-fix-body { padding: 16px 18px 18px; }
+    .fix-label {
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .fix-done {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .issue-fix details.fix-why {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+    }
+    .issue-fix details.fix-why summary {
+      padding: 12px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      list-style: none;
+      user-select: none;
+    }
+    .issue-fix details.fix-why summary::-webkit-details-marker { display: none; }
+    .issue-fix details.fix-why[open] summary {
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .issue-fix details.fix-why .why-body {
+      padding: 12px 14px 14px;
+      font-size: 14px;
+    }
+    .issue-fix .alert { margin-top: 12px; margin-bottom: 0; }
+
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; padding: 12px; }
+      .sidebar {
+        width: 100%;
+        position: static;
+        max-height: none;
+      }
+      .sidebar nav { display: none; }
+      .sidebar.open nav { display: block; }
+      .menu-toggle { display: block; width: 100%; margin-bottom: 8px; }
+      .do-dont { grid-template-columns: 1fr; }
+      .rules-grid { grid-template-columns: 1fr; }
+      .hero { padding: 18px 16px; }
+      .hero h2 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <h1>美区 Apple ID 知识库</h1>
+    <div class="search-wrap">
+      <input type="search" id="search" placeholder="搜索：停用、密码、双重认证、查订单、售后…" autocomplete="off">
+    </div>
+    <div class="topbar-actions">
+      <a class="query" href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a>
+      <a class="back" href="/" target="_blank" rel="noopener noreferrer">返回商店</a>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <button class="menu-toggle" id="menuToggle" type="button">📋 目录</button>
+    <nav id="nav">
+      <div class="nav-group">怎么开始</div>
+      <a href="#journeys" class="active">选择你的场景</a>
+      <a href="#must-read">使用前注意事项</a>
+      <a href="#product-types">买哪种合适</a>
+      <div class="nav-group">使用中 · 登录下载</div>
+      <a href="#main-flow">💡 如何使用</a>
+      <a href="#login">💡 登录常见问题</a>
+      <a href="#download">💡 下载与更新问题</a>
+      <div class="nav-group">遇到报错</div>
+      <a href="#quick-nav">⚠  其他常见问题速查</a>
+      <a href="#update-disabled">更新停用（高频）</a>
+      <a href="#pwd-wrong">密码不正确</a>
+      <a href="#disabled">账户停用</a>
+      <a href="#2fa">双重认证 · 不升级</a>
+      <a href="#network">验证失败 / 网络</a>
+      <div class="nav-group">其他</div>
+      <a href="#profile">如何修改密码</a>
+      <a href="#payment">账号充值问题</a>
+      <a href="#safety">安全提醒</a>
+      <div class="nav-group">售后</div>
+      <a href="#support">申请售后 / 换新</a>
+    </nav>
+  </aside>
+
+  <main class="main" id="content">
+
+    <div class="hero">
+      <h2>美区 Apple ID · 一站式帮助中心</h2>
+      <p>售前选购、拿卡密、登录下载、报错排查、申请售后 — 按你的情况选路径即可。</p>
+      <div class="path-strip">
+        <a href="#journeys">选场景</a>
+        <a href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a>
+        <a href="#main-flow">登录教程</a>
+        <a href="#quick-nav">报错速查</a>
+        <a href="#support">售后换新</a>
+      </div>
+    </div>
+
+    <section class="searchable" id="journeys" data-keywords="场景 售前 售后 刚买 报错 新手 动线">
+      <p class="journey-section-title">我是哪种用户？点选你的情况，直达对应指引</p>
+      <div class="journey-grid">
+        <a class="journey-card" href="#product-types">
+          <span class="j-icon">🛒</span>
+          <h3>还没买 · 售前</h3>
+          <p>空白号/成品号怎么选？能下哪些 App？</p>
+        </a>
+        <a class="journey-card highlight" href="#main-flow">
+          <span class="j-icon">📱</span>
+          <h3>如何使用 · 登录</h3>
+          <p>6 步主流程：从卡密到下载完成</p>
+        </a>
+        <a class="journey-card" href="#quick-nav">
+          <span class="j-icon">⚠️</span>
+          <h3>报错速查（推荐）</h3>
+          <p>停用、密码错、验证失败…关键词速查</p>
+        </a>
+        <a class="journey-card" href="#support">
+          <span class="j-icon">🔄</span>
+          <h3>需要售后 · 换新</h3>
+          <p>3 天质保，站内提交申请与进度查询</p>
+        </a>
+        <a class="journey-card" href="/" target="_blank" rel="noopener noreferrer">
+          <span class="j-icon">🏪</span>
+          <h3>继续购物</h3>
+          <p>返回商店浏览更多商品</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="sticky-actions" aria-label="常用操作">
+      <a class="btn-primary" href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单（获取卡密）</a>
+      <a class="btn-ghost" href="#main-flow">登录主流程</a>
+      <a class="btn-ghost" href="#quick-nav">报错速查</a>
+      <a class="btn-ghost" href="#support" target="_blank" rel="noopener noreferrer">申请售后</a>
+    </div>
+
+    <section class="rules-block searchable" id="must-read" data-keywords="红线 必读 禁止 设置 iCloud 双重认证">
+      <div class="rules-header">
+        <h2>使用红线 · 务必遵守</h2>
+        <p>以下 5 条违反任一条，都可能导致封号、锁机（全部遵守也不代表不会风控）</p>
+      </div>
+      <div class="rules-grid">
+        <div class="rule-item">
+          <span class="rule-num">1</span>
+          <div class="rule-body">
+            <b><span class="tag-ok">下载号只能</span>在 App Store 登录</b>
+            <p><span class="tag-forbid">无法</span>在「设置」顶部或 iCloud 登录</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">2</span>
+          <div class="rule-body">
+            <b>iCloud 账号相关功能</b>
+            <p><span class="tag-forbid">禁止</span>开启「查找我的 iPhone」、同步照片/通讯录，防止账号异常导致的设备被锁定</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">3</span>
+          <div class="rule-body">
+            <b>尽快改密码与密保</b>
+            <p><span class="tag-forbid">最近</span>盗号猖獗！</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">4</span>
+          <div class="rule-body">
+            <b>如遇弹窗，想跳过选「不升级」</b>
+            <p>提示升级安全性时 →其他选项 → 不升级</p>
+          </div>
+        </div>
+        <div class="rule-item rule-wide">
+          <span class="rule-num">5</span>
+          <div class="rule-body">
+            <b>账号使用范围</b>
+            <p><span class="tag-forbid">不保证</span>礼品卡消费 · 不保证内购账号绑定 · 登录第三方 App/网站</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 买哪种（售前） -->
+    <p class="card-section-label">售前与拿卡密</p>
+    <section class="card searchable" id="product-types" data-keywords="买哪个 空白号 成品号 选购 美区 售前 还没买">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>买哪种合适？（空白号 vs 成品号）</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <h4>为什么需要美区 Apple ID？</h4>
+        <p>国区 App Store 部分免费或付费应用无法下载或已下架，需登录对应地区账号才能获取（如部分工具类、海外独占 App、各种游戏等）。</p>
+        <h4>地区怎么选？</h4>
+        <ul class="check">
+          <li><b>美区 🇺🇸</b>：绝大多数用户的选择，应用最全，本知识库主要针对美区</li>
+          <li>港/台区：若需要中文界面商店可按需选购，使用逻辑与美区类似</li>
+        </ul>
+        <h4>空白号 vs 成品号</h4>
+        <table class="kw">
+          <thead><tr><th>类型</th><th>免费 App</th><th>付费 App</th></tr></thead>
+          <tbody>
+            <tr><td><b>空白号</b></td><td>✅ 可下载</td><td>❌ 不可下载</td></tr>
+            <tr><td><b>成品号</b></td><td>✅ 可下载</td><td>✅ 仅商品说明中<b>指定</b>的付费 App；❌ 其他付费 App 不行<br>或预存了一定的费用可用于购买app</td></tr>
+          </tbody>
+        </table>
+        <p>购买前请看清商品标题与介绍，错误购买不退不换。尚未购买可 <a href="/" target="_blank" rel="noopener noreferrer">前往商店选购</a>。</p>
+        <h4>购买后账号归你</h4>
+        <p>修改密码、密保后，账号由你独享，没被封的情况下可长期使用，质保政策看商品介绍，期内登录类问题可 <a href="#support">申请售后</a>换新。</p>
+      </div>
+    </section>
+
+    <!-- 主流程 -->
+    <section class="main-flow searchable" id="main-flow" data-keywords="主流程 登录 步骤 怎么用 教程 指引 App Store">
+      <div class="main-flow-head">
+        <h2>主流程：从卡密到下载完成</h2>
+        <p>按顺序完成以下 6 步即可。绝大多数用户只需走这一条路径。</p>
+      </div>
+      <div class="main-flow-body">
+        <div class="flow-overview">
+          <span>① 准备卡密</span><span class="arrow">→</span>
+          <span>② App Store 登录</span><span class="arrow">→</span>
+          <span>③ 处理弹窗</span><span class="arrow">→</span>
+          <span>④ 下载 App</span><span class="arrow">→</span>
+          <span>⑤ 完成收尾</span>
+        </div>
+
+        <div class="flow-timeline">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <h4>准备卡密</h4>
+            <p class="flow-desc">登录只需要 <b>账号 + 密码</b>；密保留着改密码时用。</p>
+            <ul class="flow-actions">
+              <li>支付成功后，打开 <a href="/user/index/query" class="action-link" target="_blank" rel="noopener noreferrer">查订单</a>，输入下单时填写的邮箱查询并复制卡密</li>
+              <li>从卡密中分出账号与密码（格式常为 <code>账号----密码</code>，<b>横杠不是密码</b>）</li>
+              <li>删除 <code>mailto:</code>、首尾空格；勿用图片识别文字，否则可能会识别错误！</li>
+            </ul>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <h4>只在 App Store 登录</h4>
+            <p class="flow-desc">核心步骤。只登商店，<b>不建议</b>登设置 / iCloud。</p>
+            <ul class="flow-actions">
+                
+              <li>打开 <b>App Store</b>（蓝色 A 图标）—— 不是「设置」</li>
+              <li>点右上角 <b>头像</b></li>
+              <li>手指滑到页面 <b>最底部</b> → 点「退出登录」</li>
+              <li>📣<b> iOS 26.4 退出老号的办法：</b> 设置 -> 头像 ->进入「Apple 账户」界面 -> 媒体与购买项目 -> 点击「退出登录」</li>
+              <li>滑回顶部 → 输入 <b>账号</b> 和 <b>密码</b> → 登录</li>
+            </ul>
+            <div class="flow-note danger">❌ 禁止在「设置」顶部 Apple 账户登录 · ❌ 禁止登录 iCloud · ❌ 禁止开启「查找我的 iPhone」</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <h4>处理登录后弹窗（按出现情况操作）</h4>
+            <p class="flow-desc">不一定全部出现，遇到什么处理什么。</p>
+            <ul class="flow-actions">
+              <li><b>完善账户信息</b>：地区 United States，付款方式选 <b>None（无）</b>，按商品说明填美区地址</li>
+              <li><b>iCloud / 查找我的 iPhone</b>：一律选 <b>关闭 / 不启用</b></li>
+              <li>，<b>如果你不想</b>绑定手机号<b>升级账户安全性（双重认证）</b>：务必点 <b>「其他选项」</b> → <b>「不升级」</b>，<b>不要</b>点「升级」</li>
+            </ul>
+            <div class="flow-note danger">❌ 开启双重认证！绑定后无法修改密保。*</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">5</div>
+            <h4>重启商店或者重启手机，下载你需要 App</h4>
+            <p class="flow-desc">不重启可能无法刷新商店！</p>
+            <ul class="flow-actions">
+              <li>用 <b>英文全称</b> 搜索目标 App</li>
+              <li>点 <b>Get / 获取</b> 下载安装</li>
+            </ul>
+            <div class="flow-note">若是<b>更新</b>旧 App 报错（停用/陌生账号）→ 不是账号问题，见 <a href="#update-disabled">更新停用专题</a>：先备份数据，卸载后重新下载。</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">6</div>
+            <h4>完成收尾</h4>
+            <ul class="flow-actions">
+              <li>App 下载安装完成，可正常使用</li>
+              <li>App Store 可 <b>切回日常账号</b>，已装 App 不受影响</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow-branch">
+          <b>某一步卡住了？</b>
+          登录失败 → <a href="#login">登录问题</a> ·
+          停用/锁定 → <a href="#account-status">账户异常</a> ·
+          验证失败 → <a href="#network">网络排查</a> ·
+          更新报错 → <a href="#update-disabled">更新停用</a> ·
+          全部报错表 → <a href="#quick-nav">报错速查</a> ·
+          没卡密 → <a href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 速查表 -->
+    <p class="card-section-label">报错速查</p>
+    <section class="card searchable open" id="quick-nav" data-keywords="速查 报错 停用 锁定 密码 验证">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>报错关键词速查</h3>
+        <span class="tag">先看这里</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <p class="quick-nav-intro">点你屏幕上<b>看到的提示</b>，跳转到对应解决办法。每个条目都是<b>先给操作步骤</b>；想了解原因可展开「为什么会这样」。</p>
+        <table class="kw">
+          <thead><tr><th>看到的提示</th><th>解决办法</th></tr></thead>
+          <tbody>
+            <tr><td>Apple ID 或密码不正确</td><td><a href="#pwd-wrong">密码不正确</a></td></tr>
+            <tr><td>账户被锁定 / 安全原因锁定</td><td><a href="#locked">账户锁定</a></td></tr>
+            <tr><td>账户被停用 / Disabled</td><td><a href="#disabled">账户停用</a></td></tr>
+            <tr><td>此 Apple ID 无效或不受支持</td><td><a href="#invalid-id">ID 无效</a></td></tr>
+            <tr><td>弹出升级双重认证 / 绑定手机号</td><td><a href="#2fa">选「不升级」</a></td></tr>
+            <tr><td>需要双重认证 / 六位验证码</td><td><a href="#2fa-code">双重认证</a></td></tr>
+            <tr><td>验证失败 / 无法连接服务器</td><td><a href="#network">网络排查</a></td></tr>
+            <tr><td>更新时提示停用 / 禁用 / Disabled</td><td><a href="#update-disabled">更新停用（高频）</a></td></tr>
+            <tr><td>更新时要陌生账号密码</td><td><a href="#update-other-id">更新弹窗</a></td></tr>
+            <tr><td>更新时密码错误 / 锁定 / ID 无效</td><td><a href="#update-disabled">更新停用（高频）</a></td></tr>
+            <tr><td>搜不到应用 / 下不了软件</td><td><a href="#cant-download">无法下载</a></td></tr>
+            <tr><td>无法登录 / 一直转圈</td><td><a href="#cant-login">无法登录</a></td></tr>
+            <tr><td>找不到购买的卡密</td><td><a href="/user/index/query" target="_blank" rel="noopener noreferrer">去查订单</a> · <a href="#order">说明</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="issue-hub" id="issue-hub">
+
+      <article class="issue-fix searchable" id="pwd-wrong" data-keywords="密码不正确 密码错误 apple id 或密码">
+        <div class="issue-fix-header">
+          <h3>密码不正确</h3>
+          <p class="symptom">提示：「Apple ID 或密码不正确」</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">在 <a href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a> 页<b>手动复制</b>账号密码（勿用截图识别 / OCR）</li>
+            <li data-step="2">检查大小写、特殊符号，确认无首尾空格、无 <code>mailto:</code>、无横杠误复制</li>
+            <li data-step="3">打开 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 用同一组凭据测试</li>
+            <li data-step="4">网页也失败 → 访问 <a href="https://iforgot.apple.com/" target="_blank" rel="noopener noreferrer">iforgot.apple.com</a> 用卡密中的<b>密保答案</b>重置密码</li>
+            <li data-step="5">以上都试过仍无法登录 → 质保 <b>3 天内</b>可 <a href="#support" target="_blank" rel="noopener noreferrer">申请售后</a>换新</li>
+          </ol>
+          <p class="fix-done">✅ 解决完即可关闭。若是在<b>更新 App</b> 时弹窗要密码，见 <a href="#update-other-id">更新弹窗</a>，不是当前密码错了。</p>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>最常见是复制时多了空格、少了字符，或 OCR 把字母认错。少数情况是密码已被他人改动，可用密保在 iforgot 重置。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="locked" data-keywords="锁定 安全原因 locked">
+        <div class="issue-fix-header">
+          <h3>账户锁定</h3>
+          <p class="symptom">提示：「此 Apple 账户因安全原因被锁定」</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">访问 <a href="https://iforgot.apple.com/" target="_blank" rel="noopener noreferrer">iforgot.apple.com</a> 尝试重置密码</li>
+            <li data-step="2">确认你只在 <b>App Store</b> 登录，没有在「设置」/ iCloud 登录</li>
+            <li data-step="3">切换 Wi-Fi / 4G，关 VPN 后重试登录</li>
+            <li data-step="4">仍锁定且在购买后 <b>3 天内</b> → <a href="#support" target="_blank" rel="noopener noreferrer">申请售后</a>换新</li>
+          </ol>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>苹果风控：密码多次错误、异常地点登录、误在 iCloud 登录等都可能触发锁定。尽快改密保可降低再次锁定概率。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="disabled" data-keywords="停用 disabled 禁用">
+        <div class="issue-fix-header">
+          <h3>账户停用</h3>
+          <p class="symptom">提示：「账户被停用」/ Disabled（<b>登录 App Store 时</b>出现）</p>
+        </div>
+        <div class="issue-fix-body">
+          <div class="alert alert-warn">
+            <b>先分清场景：</b>若是点「更新」某个 App 才报错 → 见 <a href="#update-disabled">更新停用</a>，<b>不是你的卡密坏了</b>。
+          </div>
+          <p class="fix-label">先这样做（登录时停用）</p>
+          <ol class="steps">
+            <li data-step="1">在电脑打开 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 测试能否登录</li>
+            <li data-step="2">确认账号从 <a href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a> 完整复制，无输错</li>
+            <li data-step="3">换网络环境重试 App Store 登录</li>
+            <li data-step="4">购买后 <b>3 天内</b>仍无法使用 → <a href="#support" target="_blank" rel="noopener noreferrer">申请售后</a>换新</li>
+          </ol>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>登录时停用通常是苹果对该账号的风控。与「更新时才停用」完全不同：后者是 App 用旧号下载导致的，无需换新。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="invalid-id" data-keywords="无效 不受支持 invalid">
+        <div class="issue-fix-header">
+          <h3>ID 无效</h3>
+          <p class="symptom">提示：「此 Apple ID 无效或不受支持」</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">回到 <a href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a>，<b>逐字手动输入</b>账号（不要粘贴带格式的文本）</li>
+            <li data-step="2">核对是否少字符、多符号、把密码当成账号</li>
+            <li data-step="3">在 <a href="https://iforgot.apple.com/" target="_blank" rel="noopener noreferrer">iforgot</a> 输入同一账号 — 若仍提示无效，<b>几乎一定是账号输错</b></li>
+          </ol>
+          <p class="fix-done">确认账号无误且网页也无法登录 → 3 天内 <a href="#support" target="_blank" rel="noopener noreferrer">申请售后</a>。</p>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>99% 是账号输入错误（OCR、复制空格、邮箱少写一段）。真正「账号失效」较少，会先排除输入问题。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="2fa" data-keywords="双重认证 不升级 其他选项 绑定手机">
+        <div class="issue-fix-header">
+          <h3>选「不升级」</h3>
+          <p class="symptom">登录后弹出「升级账户安全性」/ 要求绑定手机号</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">看到升级提示 → 点 <b>「其他选项」</b>（不要点「升级」）</li>
+            <li data-step="2">点 <b>「不升级」</b>，继续完成登录</li>
+            <li data-step="3"><b>不建议</b>绑定手机号、不要开启双重认证</li>
+          </ol>
+          <p class="fix-done">已误点升级 → 见 <a href="#2fa-code">双重认证</a> 或 <a href="#profile">修改资料 · 解除双重认证</a>。</p>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>苹果会引导所有账号开启 2FA。我们提供的账号需用密保管理，升级后难改密保、易触发异常，因此必须选「不升级」。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="2fa-code" data-keywords="六位 验证码 双重认证 2fa">
+        <div class="issue-fix-header">
+          <h3>双重认证</h3>
+          <p class="symptom">登录时要求输入六位验证码</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">若你能收到验证码 → 输入完成登录，然后尽快按 <a href="#profile">修改资料</a> 解除双重认证</li>
+            <li data-step="2">收不到验证码 / 绑了陌生手机号 → <a href="#support" target="_blank" rel="noopener noreferrer">申请售后</a>协助</li>
+          </ol>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>说明该账号已开启双重认证（误点了升级，或账号本身已绑定）。未绑定前应用密保管理；绑定后需专门解除流程。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="network" data-keywords="验证失败 无法连接 服务器 网络">
+        <div class="issue-fix-header">
+          <h3>网络排查</h3>
+          <p class="symptom">提示：「验证失败」「无法连接到 Apple ID 服务器」</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">开关飞行模式，等待 10 秒再关闭</li>
+            <li data-step="2">切换 Wi-Fi ↔ 4G/5G</li>
+            <li data-step="3">关闭 VPN / 代理</li>
+            <li data-step="4">设置 → 通用 → 日期与时间 → <b>自动设置</b></li>
+            <li data-step="5">还原网络设置，重启手机后再试</li>
+            <li data-step="6">用电脑打开 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> — 网页能登、手机不能 → 继续换网络</li>
+          </ol>
+          <p class="fix-done">不一定是封号。网页能登录说明账号正常，见 <a href="#cant-login">无法登录</a> 同类步骤。</p>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>国内网络访问 Apple 服务器不稳定，或设备时间、DNS、代理干扰验证。与账号停用是不同问题。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="update-disabled" data-keywords="更新 停用 禁用 disabled 高频">
+        <div class="issue-fix-header">
+          <h3>更新停用（高频）</h3>
+          <p class="symptom">点「更新」时提示停用 / 禁用 / 密码错 / ID 无效 — 但 App Store 能正常登录你的美区 ID</p>
+        </div>
+        <div class="issue-fix-body">
+          <div class="alert alert-warn">
+            <b>此非新账号问题！是由于您原来下载此软件的老ID异常！请根据下面方法，使用我们账号下载。</b>
+          </div>
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1"><b>不要</b>输入弹窗里陌生账号的密码</li>
+            <li data-step="2"><b>备份</b> App 内数据（如果重要），否则你的数据可能丢失</li>
+            <li data-step="3">去设置->通用->存储空间，找到app，选择卸载（不选删除，删除会丢失所有数据）</li>
+            <li data-step="4">打开 App Store，确认已登录 <b>新 ID</b></li>
+            <li data-step="5">搜索 App 英文名 → 点 <b>获取</b> 重新下载</li>
+            <li data-step="6">批量更新时：只对<b>报错的 App</b>逐个卸载重装，不要点「全部更新」</li>
+          </ol>
+          <p class="fix-done">✅ 重装后更新将走你当前美区 ID，不再弹陌生账号。</p>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>iOS 记住每个 App 是<b>用哪个 Apple ID 下载的</b>。更新时必须验证那个旧 ID。旧号往往是公共号/国区号/已停用号，所以更新时报错，与你现在登录的美区 ID 无关。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="update-other-id" data-keywords="更新 陌生账号 弹窗 密码">
+        <div class="issue-fix-header">
+          <h3>更新弹窗</h3>
+          <p class="symptom">更新时弹出陌生邮箱 / 账号无法修改，只能输密码</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <p>与 <a href="#update-disabled">更新停用</a> 完全相同：</p>
+          <ol class="steps">
+            <li data-step="1">❌ 不要输入陌生账号密码</li>
+            <li data-step="2">✅ 卸载该 App → 用当前美区 ID 重新下载</li>
+          </ol>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>弹窗里的邮箱是「当初下载这个 App 的 Apple ID」，不是你的卡密账号。100% 是旧下载号问题。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="cant-download" data-keywords="搜不到 下不了 下载">
+        <div class="issue-fix-header">
+          <h3>无法下载</h3>
+          <p class="symptom">登录成功，但搜不到 / 下不了应用</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">确认 App Store 已显示美区（价格单位为美元 <b>$</b>）</li>
+            <li data-step="2">用 App 的<b>英文全称</b>搜索</li>
+            <li data-step="3">退出 App Store 账号后重新登录</li>
+            <li data-step="4">重启手机后再试</li>
+          </ol>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>商店地区不对、搜索关键词不对，或国区已下架的 App 必须用对应地区 ID 才能搜到。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="issue-fix searchable" id="cant-login" data-keywords="无法登录 转圈 加载">
+        <div class="issue-fix-header">
+          <h3>无法登录</h3>
+          <p class="symptom">App Store 登录一直转圈 / 加载不出</p>
+        </div>
+        <div class="issue-fix-body">
+          <p class="fix-label">先这样做</p>
+          <ol class="steps">
+            <li data-step="1">先在 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 测试 — 网页能登说明 ID 没问题</li>
+            <li data-step="2">按 <a href="#network">网络排查</a> 步骤：飞行模式、换网、关 VPN、还原网络设置</li>
+            <li data-step="3">重启手机后重试</li>
+          </ol>
+          <p class="fix-done">网页也不能登 → 回到 <a href="#pwd-wrong">密码不正确</a> 或 <a href="#disabled">账户停用</a>。</p>
+          <details class="fix-why">
+            <summary>为什么会这样（可选阅读）</summary>
+            <div class="why-body">
+              <p>多数是一直转圈的网络问题，不是账号坏了。先用网页区分是「账号问题」还是「网络问题」。</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+    </div>
+
+
+    <!-- 登录问题（补充说明，主入口见上方报错速查） -->
+    <p class="card-section-label">补充说明</p>
+    <section class="card searchable" id="login" data-keywords="登录 无法登录 密码">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>登录问题 · 补充</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <p style="font-size:13px;color:var(--muted);">常见报错请先查 <a href="#quick-nav">报错速查表</a>，每条均为「先解决、后解释」。</p>
+        <h4>提示「Apple ID 或密码不正确」</h4>
+        <ol class="steps">
+          <li data-step="1">手动输入，避免 OCR / 截图识别</li>
+          <li data-step="2">检查大小写与特殊符号</li>
+          <li data-step="3">确认未复制横杠、空格、<code>mailto:</code></li>
+          <li data-step="4">网页测试：打开 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 尝试登录</li>
+          <li data-step="5">仍失败 → <a href="https://iforgot.apple.com/" target="_blank" rel="noopener noreferrer">iforgot.apple.com</a> 用密保重置密码</li>
+          <li data-step="6">找回时提示「无效或不受支持」→ 几乎一定是 <b>账号输入错误</b>，逐字核对</li>
+        </ol>
+        <p><b>特殊：</b>更新 App 时弹窗要密码且报错 → 见 <a href="#update-other-id">更新弹窗问题</a>，不是当前密码错了。</p>
+
+        <h4>无法登录 / 一直加载</h4>
+        <p>多为 <b>本地网络问题</b>，账号本身可能正常：</p>
+        <ol class="steps">
+          <li data-step="1">先在 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 测试 — 网页能登说明 ID 没问题</li>
+          <li data-step="2">切换 Wi-Fi ↔ 4G/5G，开关飞行模式（等 10 秒）</li>
+          <li data-step="3">关闭 VPN / 代理</li>
+          <li data-step="4">重启手机</li>
+          <li data-step="5">设置 → 通用 → 还原 → <b>还原网络设置</b></li>
+          <li data-step="6">确认日期时间为「自动设置」</li>
+        </ol>
+        <p>以上可多轮尝试，不必固定顺序。网页能登、手机不能 → 继续换网络环境。</p>
+
+        <h4>登录后要求完善账户信息</h4>
+        <p>美区 ID 首次登录可能弹出账单信息：地区保持 <b>United States</b>，付款方式选 <b>None（无）</b>，按商品说明填写美区地址（常用免税州地址）。</p>
+      </div>
+    </section>
+
+    <!-- 账号状态 -->
+    <section class="card searchable" id="account-status" data-keywords="锁定 停用 disabled locked 无效">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>账户锁定 / 停用 / 无效</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <h4>账户被锁定（安全原因）</h4>
+        <p>典型提示：「此 Apple 账户因安全原因被锁定」</p>
+        <ul class="check">
+          <li>常见原因：密码多次错误、异常登录、误在 iCloud 登录触发风控</li>
+          <li>尝试 <a href="https://iforgot.apple.com/" target="_blank" rel="noopener noreferrer">iforgot.apple.com</a> 重置密码</li>
+          <li>质保 <b>3 天内</b> 仍无法解决 → <a href="#support">申请售后</a>换新</li>
+        </ul>
+
+        <h4>账户被停用（Disabled）</h4>
+        <table class="kw">
+          <thead><tr><th>场景</th><th>处理</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>登录美区 ID 时</b>停用</td>
+              <td>苹果风控；购买后尽快改资料；<b>3 天内</b> <a href="#support">申请售后</a>换新</td>
+            </tr>
+            <tr>
+              <td><b>更新某个 App 时</b>停用 / 禁用</td>
+              <td>旧下载号已停用，不是你的卡密 → <a href="#update-disabled">卸载后重新下载</a>，无需换新</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>此 Apple ID 无效或不受支持</h4>
+        <ul class="check">
+          <li>最常见：<b>账号输入错误</b>（多字符、少字符、OCR 错字）</li>
+          <li>检查是否复制完整、无多余符号</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- 更新停用 高频 -->
+    <section class="card searchable" id="archive-update-disabled" data-keywords="更新 停用 禁用 disabled 锁定 密码不正确 无效 陌生账号 卸载 重装 谁下载谁更新 批量更新">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>更新软件时提示停用 / 禁用（高频）</h3>
+        <span class="tag">最多人遇到</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-warn">
+          <b>先判断：是「登录停用」还是「更新停用」？</b>
+          能在 App Store 正常登录你购买的美区 ID → 只是点「更新」时才报错，属于本文档的「更新停用」，<b>不是你的卡密坏了</b>，<b>不需要申请售后换新</b>。<br>
+          若连 App Store 都登不上、一点登录就停用 → 见 <a href="#disabled">登录时停用</a>，3 天内可 <a href="#support">申请售后</a>。
+        </div>
+
+        <h4>你可能看到的提示（任一种都是同一类问题）</h4>
+        <ul class="check">
+          <li>「你的账户已在 App Store 和 iTunes 中被停用」/ <em>Your account has been disabled…</em></li>
+          <li>「此 Apple ID 未激活」/ 账户被锁定 / ID 无效或不受支持</li>
+          <li>「Apple ID 或密码不正确」—— 但弹窗里显示的是 <b>陌生邮箱</b>，不是你的美区卡密账号</li>
+          <li>更新时要求输入密码，账号一栏 <b>无法修改</b>，只能输密码</li>
+          <li>桌面 App 图标正常能打开，一点 App Store 里的「更新」就失败</li>
+          <li>批量更新时只有某几个 App 报错，其他 App 正常</li>
+        </ul>
+
+        <h4>原因（一句话）</h4>
+        <div class="alert alert-info">
+          <b>核心规则：谁下载，谁更新</b>
+          iOS 会记住每个 App 是<b>用哪个 Apple ID 下载的</b>。更新时必须验证<b>当初下载的那个 ID</b>，与你现在 App Store 里登录的美区 ID <b>完全无关</b>。<br>
+          那个「当初下载的 ID」往往是：别人分享的号、过期的公共号、国区号、或已停用的旧共享号 → 所以更新时提示<b>停用 / 禁用 / 密码错</b>。
+        </div>
+
+        <h4>常见来源（为什么手机里会有这种 App）</h4>
+        <ul class="check">
+          <li>以前用<b>网上分享的公共美区号</b>下载过（该号已被苹果停用）</li>
+          <li>别人帮你装过，或二手手机里自带的 App</li>
+          <li>国区 ID 时期下载过，后来切了美区号想更新</li>
+          <li>同一款 App 装过两次（不同账号来源），更新时撞上了旧记录</li>
+        </ul>
+
+        <h4>正确解决办法（唯一有效，按顺序操作）</h4>
+        <ol class="steps">
+          <li data-step="1"><b>不要</b>去输入弹窗里那个陌生账号的密码（输对了也救不了停用号，还可能锁设备）</li>
+          <li data-step="2"><b>不要</b>因此申请售后换新——你购买的美区 ID 很可能完全正常</li>
+          <li data-step="3"><b>先备份 App 内数据</b>（节点配置、聊天记录等），卸载后本地数据会丢失</li>
+          <li data-step="4">在 iPhone 桌面 <b>长按该 App → 删除 App</b>（彻底卸载，不是只移除主屏幕）</li>
+          <li data-step="5">打开 App Store，确认已登录 <b>你自己的美区卡密 ID</b>（右上角头像可查看）</li>
+          <li data-step="6">搜索该 App 英文名，点 <b>Get / 获取</b> 重新下载安装</li>
+          <li data-step="7">装好后即可正常使用；今后更新走你当前美区 ID，不再弹陌生账号</li>
+        </ol>
+
+        <h4>卸载重装后会怎样？</h4>
+        <ul class="check">
+          <li>App 本身可正常使用，功能与重新下载前一致</li>
+          <li>部分 App 的<b>本地配置、聊天记录</b>可能丢失，请提前备份（如导出节点配置）</li>
+          <li>App 内<b>订阅会员</b>一般不受影响（会员绑的是 App 内账号，不是 Apple ID）</li>
+        </ul>
+
+        <h4>批量更新 / 多个 App 同时报错</h4>
+        <p>不要点「全部更新」。对<b>每一个报错的 App</b>单独执行「卸载 → 用美区 ID 重新下载」。没报错的 App 可照常更新。</p>
+
+        <h4>和「登录停用」对比</h4>
+        <table class="kw">
+          <thead><tr><th>情况</th><th>含义</th><th>处理</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>App Store <b>登录</b>美区 ID 就停用</td>
+              <td>你买的号被风控</td>
+              <td>3 天内 <a href="#support">申请售后</a>换新</td>
+            </tr>
+            <tr>
+              <td>登录正常，<b>更新某个 App</b> 才停用</td>
+              <td>该 App 是别的号下载的</td>
+              <td>卸载 → 美区 ID 重装（本文）</td>
+            </tr>
+            <tr>
+              <td>网页 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 能登，手机 App Store 不能登</td>
+              <td>网络问题</td>
+              <td>见 <a href="#cant-login">无法登录</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>如何预防以后再遇到</h4>
+        <ul class="check">
+          <li>用<b>自己购买的美区 ID</b>下载，不要用网上分享的公共号装 App</li>
+          <li>下载完成后 App Store 可切回国区，但<b>已装 App 的「下载归属」不会变</b>——只有用该美区号重新下载一次才能改掉</li>
+          <li>收到别人发的「已装好某 App 的手机」或安装包时，建议卸载后用自己号重装</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 下载更新 -->
+    <section class="card searchable" id="download" data-keywords="下载 更新 卸载 搜不到 应用">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>下载与更新（其他情况）</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <h4>登录成功但搜不到 / 下不了应用</h4>
+        <ol class="steps">
+          <li data-step="1">确认 App Store 已切到美区（价格显示美元 $）</li>
+          <li data-step="2">用 <b>英文全称</b> 搜索（很多美区 App 无中文名）</li>
+          <li data-step="3">重启手机后再试</li>
+          <li data-step="4">退出 App Store 账号重新登录</li>
+          <li data-step="5">国区已下架的 App（如部分 VPN）必须用美区 ID 下载</li>
+        </ol>
+
+        <h4>更新弹窗：陌生账号 / 无法改账号</h4>
+        <p>与 <a href="#update-disabled">更新停用</a> 同一类问题，统一按「卸载 → 美区 ID 重新下载」处理。</p>
+        <ul class="check">
+          <li>弹窗邮箱不是你的卡密账号 → 100% 是旧下载号，不是你的号坏了</li>
+          <li>❌ 不要输入陌生账号密码</li>
+          <li>✅ 卸载该 App → 用当前美区 ID 重新下载</li>
+        </ul>
+
+        <h4>下载（非更新）时提示锁定 / 停用 / 密码不正确</h4>
+        <p>若是在点「获取/下载」新 App 时报错，先确认 App Store 登录的是美区 ID 且账号正常；若仅个别已装 App 报错，仍是更新归属问题 → 卸载重装。</p>
+      </div>
+    </section>
+
+    <!-- 网络 -->
+    <section class="card searchable" id="archive-network" data-keywords="验证失败 服务器 网络 vpn 飞行模式">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>验证失败 / 网络问题</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <p>提示「验证失败」「无法连接到 Apple ID 服务器」<b>不一定是封号</b>，常见为网络或设备问题：</p>
+        <ol class="steps">
+          <li data-step="1">开关飞行模式（等 10 秒再关）</li>
+          <li data-step="2">切换 Wi-Fi / 4G</li>
+          <li data-step="3">关闭 VPN / 代理</li>
+          <li data-step="4">日期时间设为自动</li>
+          <li data-step="5">还原网络设置 + 重启</li>
+          <li data-step="6">查看 <a href="https://www.apple.com/support/systemstatus/" target="_blank" rel="noopener noreferrer">Apple 系统状态</a> 是否故障</li>
+        </ol>
+        <p>网页 <a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">appleid.apple.com</a> 能登录、手机不能 → 几乎总是网络问题，多换网络环境尝试。详见 <a href="#cant-login">无法登录</a>。</p>
+      </div>
+    </section>
+
+    <!-- 修改资料 -->
+    <section class="card searchable" id="profile" data-keywords="密码 密保 修改 iforgot 生日">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>修改账号资料</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-warn">
+          <b>请先改密保，且不要开双重认证</b>
+          收到卡密后尽快用电脑修改密码与密保。登录时若遇升级弹窗，选「其他选项」→「不升级」。<b>切勿绑定手机号。</b>
+        </div>
+        <h4>修改密码与密保</h4>
+        <ul class="check">
+          <li>电脑访问 <a href="https://iforgot.apple.com/password/verify/appleid" target="_blank" rel="noopener noreferrer">iforgot.apple.com</a>（<b>务必用电脑</b>，手机往往只能改密码不能改密保）</li>
+          <li>输入 ID → 按卡密中的密保答案填写（朋友名字、理想工作、父母在哪认识、生日等）</li>
+          <li>密保答案以卡密原文为准，注意大小写</li>
+          <li>若提示需手机验证 → 说明误开了双重认证，须先解除（见下）</li>
+        </ul>
+        <h4>解除双重认证（仅误点升级时使用）</h4>
+        <p>若登录时不小心点了「升级」并绑定了手机号，需先解除才能改密保：</p>
+        <p>iOS 17+ 可用 <a href="https://apps.apple.com/app/apple-support/id1130498044" target="_blank" rel="noopener noreferrer">Apple 支持 App</a>：</p>
+        <ol class="steps">
+          <li data-step="1">选「协助其他人」→ 输入 ID</li>
+          <li data-step="2">选「不认识手机号」→ 继续</li>
+          <li data-step="3">输入卡密中的生日 + 密保答案</li>
+          <li data-step="4">修改密码 = 完成解除双重认证</li>
+        </ol>
+        <p>或访问 <a href="https://iforgot.apple.com/password/verify/appleid" target="_blank" rel="noopener noreferrer">iforgot 解绑页面</a> 按引导操作。</p>
+        <div class="alert alert-warn">
+          <b>48 小时规则（误绑才适用）</b>
+          误绑双重认证后 <b>48 小时内</b>较容易解除；超过 48 小时可能无法再改密保和密码。因此请务必<b>不要升级</b>，万一误绑请立即处理。
+        </div>
+        <h4>忘记密保且无手机号</h4>
+        <p>基本无法找回 → 3 天质保期内 <a href="#support">申请售后</a>换新。</p>
+      </div>
+    </section>
+
+    <!-- 支付 -->
+    <section class="card searchable" id="payment" data-keywords="扣费 付款 礼品卡 付费 充值 封号">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>支付与扣费</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-danger">
+          <b>❌ 不建议给购买的 Apple ID 充值礼品卡</b>
+          成品/共享类账号一旦被苹果封号，账户内余额<b>无法退回</b>，充值金额将损失。仅下载免费 App 时付款方式选 None（无）即可。
+        </div>
+        <ul class="check">
+          <li>付款方式选 <b>None（无）</b> 不会自动扣费</li>
+          <li>免费 App 点 Get / 获取即可下载</li>
+          <li>必须购买付费 App 时，请确认商品类型（空白号不支持付费下载）</li>
+          <li>订阅跟随下载时使用的 ID，换号后旧订阅无法在新号下管理</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 安全 -->
+    <section class="card searchable" id="safety" data-keywords="安全 icloud 查找 激活锁 共享 第三方 礼品卡 登录其他软件">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>安全提醒</h3>
+        <span class="tag">高危</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <table class="kw">
+          <thead><tr><th>禁止行为</th><th>后果</th></tr></thead>
+          <tbody>
+            <tr><td>在设置 / iCloud 登录外区号</td><td>激活锁、设备被锁、数据泄露</td></tr>
+            <tr><td>开启「查找我的 iPhone」</td><td>设备可被远程锁定</td></tr>
+            <tr><td><b>用 Apple ID 登录第三方 App / 网站</b></td><td>易触发封号，封号后该 App 也无法登录</td></tr>
+            <tr><td><b>给账号充值礼品卡</b></td><td>封号后余额无法退回，直接损失</td></tr>
+            <tr><td>把卡密分享给他人</td><td>封号、失去质保</td></tr>
+            <tr><td>频繁切区 / 多设备同时登录</td><td>风控停用</td></tr>
+          </tbody>
+        </table>
+        <p>本站商品禁止用于违法违规用途，相关责任由购买者自行承担。</p>
+      </div>
+    </section>
+
+    <!-- 售后 -->
+    <p class="card-section-label">售后换新</p>
+    <section class="card searchable" id="support" data-keywords="售后 换新 质保 申请">
+      <div class="card-header" onclick="toggleCard(this)">
+        <h3>售后与换新</h3>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+      <div class="card-body">
+        <h4>如何申请售后</h4>
+        <p>购买后 <b>5 天内</b>，登录停用且按本文档排查仍无法使用时，可提交站内售后：</p>
+        <ol class="check">
+          <li>打开 <a href="/" target="_blank" rel="noopener noreferrer">商店首页</a> · 点击右下角人工客服</li>
+          <li>输入<b>“人工服务”</b>填写问题说明并上传问题截图</li>
+          <li>处理结果在对话页面页查看（约 24 小时内），请不要开无痕模式，否则你会看不到客服处理结果</li>
+        </ol>
+        <h4>可申请售后的情况</h4>
+        <ul class="check">
+          <li>购买后 <b>5 天内</b>，登录停用/锁定且按本文档排查仍无法使用</li>
+        </ul>
+        <h4>通常不在售后范围</h4>
+        <ul class="check">
+          <li>超过 5 天质保期的停用</li>
+          <li>iCloud 登录导致的锁机</li>
+          <li>App 内会员/功能问题</li>
+          <li>未按文档排查的网络问题</li>
+        </ul>
+        <p>提交前建议先看 <a href="#quick-nav">报错速查</a> 自助排查；仍无法解决再申请售后。</p>
+      </div>
+    </section>
+
+    <div class="no-result" id="noResult" style="display:none;">未找到匹配内容，请换关键词试试，或查看 <a href="#support">售后说明</a>。</div>
+
+  </section></main>
+</div>
+
+<p class="footer-note">
+  美区 Apple ID 知识库 · 质保 3 天 ·
+  <a href="/user/index/query" target="_blank" rel="noopener noreferrer">查订单</a> ·
+  <a href="#support" target="_blank" rel="noopener noreferrer">申请售后</a> ·
+  <a href="/" target="_blank" rel="noopener noreferrer">返回商店</a>
+</p>
+
+<script>
+(function () {
+  var hashNavigating = false;
+
+  function toggleCard(header) {
+    var card = header.parentElement;
+    if (!card || !card.classList.contains('card')) return;
+    var willOpen = !card.classList.contains('open');
+    card.classList.toggle('open');
+    if (!willOpen && location.hash) {
+      var hashId = location.hash.slice(1);
+      var target = hashId ? document.getElementById(hashId) : null;
+      if (card.id === hashId || (target && card.contains(target))) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    }
+  }
+  window.toggleCard = toggleCard;
+
+  var menuToggle = document.getElementById('menuToggle');
+  var sidebar = document.getElementById('sidebar');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+      menuToggle.textContent = sidebar.classList.contains('open') ? '✕ 收起目录' : '📋 目录';
+    });
+  }
+
+  function openAnchor(id, opts) {
+    opts = opts || {};
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    document.querySelectorAll('.issue-fix.is-target').forEach(function (node) {
+      node.classList.remove('is-target');
+    });
+    if (el.classList.contains('issue-fix')) {
+      el.classList.add('is-target');
+    }
+    var card = el.classList.contains('card') ? el : el.closest('.card');
+    if (card) card.classList.add('open');
+    if (id === 'quick-nav' || id === 'issue-hub') {
+      var qn = document.getElementById('quick-nav');
+      if (qn) qn.classList.add('open');
+    }
+    if (opts.scroll) {
+      requestAnimationFrame(function () {
+        el.scrollIntoView({ behavior: opts.smooth ? 'smooth' : 'auto', block: 'start' });
+      });
+    }
+  }
+
+  function openFromHash(scrollSmooth) {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    hashNavigating = true;
+    openAnchor(hash.slice(1), { scroll: true, smooth: scrollSmooth });
+    hashNavigating = false;
+  }
+
+  document.querySelectorAll('.journey-card[href^="#"]').forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      var id = card.getAttribute('href').slice(1);
+      e.preventDefault();
+      if (history.pushState) {
+        history.pushState(null, '', '#' + id);
+      } else {
+        location.hash = id;
+      }
+      openFromHash(true);
+    });
+  });
+
+  window.addEventListener('hashchange', function () {
+    if (!hashNavigating) openFromHash(false);
+  });
+  openFromHash(false);
+
+  var content = document.getElementById('content');
+  if (content) {
+    content.addEventListener('click', function (e) {
+      if (e.target.closest('.card-header')) return;
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var href = (a.getAttribute('href') || '').trim();
+      if (href.length < 2) return;
+      var id = href.slice(1);
+      if (!document.getElementById(id)) return;
+      e.preventDefault();
+      if (history.pushState) {
+        history.pushState(null, '', '#' + id);
+      } else {
+        location.hash = id;
+      }
+      openFromHash(true);
+    });
+  }
+
+  var search = document.getElementById('search');
+  var cards = document.querySelectorAll('.searchable');
+  var noResult = document.getElementById('noResult');
+
+  search.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function (card) {
+      if (!q) {
+        card.classList.remove('hidden-by-search');
+        card.classList.remove('open');
+        visible++;
+        return;
+      }
+      var text = (card.textContent + ' ' + (card.dataset.keywords || '')).toLowerCase();
+      if (text.indexOf(q) !== -1) {
+        card.classList.remove('hidden-by-search');
+        card.classList.add('open');
+        visible++;
+      } else {
+        card.classList.add('hidden-by-search');
+        card.classList.remove('open');
+      }
+    });
+    if (!q) {
+      openFromHash(false);
+    }
+    noResult.style.display = visible === 0 ? 'block' : 'none';
+  });
+
+  var navLinks = document.querySelectorAll('#nav a');
+  var sections = [];
+  navLinks.forEach(function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    var el = document.getElementById(id);
+    if (!el) return;
+    var anchor = el.classList.contains('card') ? el : el.closest('.card') || el;
+    sections.push({ link: a, el: anchor });
+  });
+
+  function onScroll() {
+    var y = window.scrollY + 100;
+    var current = sections[0];
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= y) current = s;
+    });
+    navLinks.forEach(function (a) { a.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// 站内其他页面、站外链接 → 新标签页打开；页内 # 锚点仍在当前页跳转
+(function () {
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var href = (a.getAttribute('href') || '').trim();
+    if (!href || href.charAt(0) === '#') return;
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  });
+})();
+</script>
+
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"29cad7f6825644149f3fb693ed2d2028","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body></html>
