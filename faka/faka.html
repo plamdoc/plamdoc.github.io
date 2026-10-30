@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自动发卡平台</title>
-    <!-- 引入Bootstrap样式 -->
-    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/plamdoc/plamdoc.github.io@main/faka/css/bootstrap.min.css">
-    <!-- 引入SweetAlert2样式 -->
-    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/plamdoc/plamdoc.github.io@main/faka/css/sweetalert2.min.css">
-    <!-- 引入FontAwesome图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <meta name="theme-color" content="#1664e8">
     <style>
-        /* 自定义联系客服按钮样式 */
-        #contact-button {
-            font-size: 14px; /* 调整字体大小 */
-            padding: 5px 10px; /* 调整按钮内边距，可以根据需要进行调整 */
-        }
+        :root{--blue:#1664e8;--ink:#20304b;--muted:#718096;--line:#e5ebf3}
+        *{box-sizing:border-box}body{margin:0;background:#f3f6fb;color:var(--ink);font:15px/1.65 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+        a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}button,input,select{font:inherit}button,a,input,select{ -webkit-tap-highlight-color:transparent}
+        .container{width:100%;max-width:720px;margin:auto;padding:0 20px}.mt-5{margin-top:42px}.row{display:flex}.justify-content-center{justify-content:center}.col-md-6{width:100%;max-width:580px}
+        .card{background:white;border:1px solid var(--line);border-radius:22px;box-shadow:0 16px 54px #1939600b;overflow:hidden}.card-header{padding:26px 28px;background:linear-gradient(120deg,#1268ed,#385ed5);color:white}.text-center{text-align:center}
+        h3{font-size:25px;line-height:1.3;letter-spacing:1px;margin:0;font-weight:700}.header-note{margin:8px 0 0;text-align:center;font-size:13px;color:#e5eeff}.card-body{padding:28px}
+        .alert{padding:15px 17px;border-radius:12px;margin-bottom:22px;font-size:13px;line-height:1.85;border:1px solid #dce9fd}.alert-info{background:#f0f6ff;color:#385173}.alert strong{display:inline-block;color:#2357a0;margin-bottom:5px;font-size:14px}
+        .form-group{margin-bottom:21px}label{display:inline-block;font-size:14px;font-weight:600;margin-bottom:8px}.form-control{display:block;width:100%;min-height:46px;border:1px solid #dce3ee;border-radius:10px;background:#fff;padding:10px 13px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+        .form-control:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px #1664e81a}.form-control::placeholder{color:#9aa7b8}select.form-control{cursor:pointer}#product-description p{margin:0}#product-description p+p{margin-top:12px;padding-top:10px;border-top:1px solid #dce9fd;font-size:18px;font-weight:700;color:var(--blue)}
+        .payment-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-check{position:relative}.form-check-input{position:absolute;top:17px;left:13px;accent-color:var(--blue);width:16px;height:16px;margin:0}.form-check-label{width:100%;margin:0;cursor:pointer;border:1px solid var(--line);border-radius:11px;padding:13px 10px 13px 39px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500}.form-check-input:checked+.form-check-label{background:#eef5ff;border-color:#8cb6f8;color:var(--blue)}.form-check-input:focus-visible+.form-check-label{outline:3px solid #1664e84d}
+        .pay-icon{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:7px;font-size:12px;font-weight:700;color:white;background:#20b469}.pay-icon.alipay{background:#1689ef}
+        .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:46px;padding:11px 20px;border:0;border-radius:11px;cursor:pointer;font-weight:600;transition:background .15s,transform .15s}.btn:active{transform:translateY(1px)}.btn:focus-visible{outline:3px solid #9dbff5;outline-offset:3px}.btn-primary{background:var(--blue);color:white;box-shadow:0 5px 14px #1664e826}.btn-primary:hover{background:#0b54cb}.btn-block{display:flex;width:100%}.btn-info{background:white;color:#526780;border:1px solid var(--line)}.btn-info:hover{background:#edf3fd}
+        #contact-button{width:calc(100% - 40px);max-width:580px;margin:18px auto 36px;font-size:14px;box-shadow:none}.form-note{text-align:center;margin:12px 0 0;font-size:12px;color:var(--muted)}
+        dialog{border:1px solid var(--line);border-radius:20px;width:calc(100% - 36px);max-width:460px;padding:26px;color:var(--ink);box-shadow:0 24px 90px #172b4d33}dialog::backdrop{background:#172b4d66}dialog h2{font-size:21px;margin:0 0 16px}dialog p{margin:8px 0;overflow-wrap:anywhere;font-size:14px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.dialog-cancel{background:#edf1f7;color:#526780}
+        @media(max-width:540px){.mt-5{margin-top:18px}.container{padding:0 12px}.card{border-radius:17px}.card-header{padding:22px 18px}.card-body{padding:20px 17px}h3{font-size:23px}.payment-options{gap:8px}.form-check-label{font-size:13px;padding-left:35px}#contact-button{width:calc(100% - 24px)}.alert{padding:12px 14px}}
+        @media(prefers-reduced-motion:reduce){*{transition:none!important}}
     </style>
-  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="003dd431-bacc-438f-b57a-5ec2dc030618";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </head>
 <body>
     <div class="container mt-5">
@@ -26,11 +31,12 @@
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <h3 class="text-center">自动发卡平台</h3>
+                        <p class="header-note">选择商品 · 确认订单 · 前往支付</p>
                     </div>
                     <div class="card-body">
                         <!-- 购买须知公告 -->
                         <div class="alert alert-info">
-                            <strong>购买须知<用户必看></strong><br>
+                            <strong>购买须知 · 用户必看</strong><br>
                             1.<a href="https://baidudoc.notion.site/7a527149f0184287b5faa08ed149faa1" target="_blank">各种教程详情请点击此链接</a><br>
                             2. 联系方式和邮箱可以作为你的提卡凭证<br>
                             3. 必须等待付款完成自动跳转，不可提前关闭页面<br>
@@ -59,26 +65,29 @@
                         <!-- 邮箱输入 -->
                         <div class="form-group">
                             <label for="email">输入邮箱或联系方式：</label>
-                            <input type="email" id="email" class="form-control" placeholder="您的邮箱">
+                            <input type="text" autocomplete="email" maxlength="200" id="email" class="form-control" placeholder="您的邮箱">
                         </div>
                         <!-- 支付方式选择 -->
                         <div class="form-group">
                             <label>选择支付方式：</label>
+                            <div class="payment-options" role="group" aria-label="支付方式">
                             <div class="form-check">
                                 <input type="radio" id="wechat" name="payment" value="wechat" class="form-check-input">
                                 <label for="wechat" class="form-check-label">
-                                    <i class="fab fa-weixin fa-2x"></i> 微信支付
+                                    <span class="pay-icon" aria-hidden="true">微</span> 微信支付
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" id="alipay" name="payment" value="alipay" class="form-check-input">
                                 <label for="alipay" class="form-check-label">
-                                    <i class="fab fa-alipay fa-2x"></i> 支付宝支付
+                                    <span class="pay-icon alipay" aria-hidden="true">支</span> 支付宝支付
                                 </label>
                             </div>
                         </div>
+                        </div>
                         <!-- 确认订单按钮 -->
-                        <button id="confirm-button" class="btn btn-primary btn-block">确认订单</button>
+                        <button type="button" id="confirm-button" class="btn btn-primary btn-block">确认订单</button>
+                        <p class="form-note">付款时请等待页面完成跳转</p>
                     </div>
                 </div>
             </div>
@@ -86,12 +95,50 @@
     </div>
 
     <!-- 弹窗部分 -->
-    <script src="https://fastly.jsdelivr.net/gh/plamdoc/plamdoc.github.io@main/faka/js/sweetalert2.min.js"></script>
+    <!-- 轻量订单弹窗：无需下载第三方弹窗库 -->
+    <dialog id="order-dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title"></h2><div id="dialog-content"></div>
+        <div class="dialog-actions"><button type="button" class="btn dialog-cancel" id="dialog-cancel">取消</button><button type="button" class="btn btn-primary" id="dialog-confirm">确定</button></div>
+    </dialog>
     <script>
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, function (char) {
+                return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];
+            });
+        }
+        // 仅实现本页面需要的弹窗功能，无外部依赖。
+        var Swal = { fire: function (options) {
+            if (typeof options === 'string') options = {title: options};
+            return new Promise(function (resolve) {
+                var dialog = document.getElementById('order-dialog');
+                var title = document.getElementById('dialog-title');
+                var body = document.getElementById('dialog-content');
+                var confirm = document.getElementById('dialog-confirm');
+                var cancel = document.getElementById('dialog-cancel');
+                title.textContent = options.title || '';
+                body.innerHTML = options.html || '';
+                confirm.textContent = options.confirmButtonText || '确定';
+                cancel.textContent = options.cancelButtonText || '取消';
+                cancel.hidden = !options.showCancelButton;
+                cancel.style.display = options.showCancelButton ? '' : 'none';
+                var finished = false;
+                function finish(ok) {
+                    if (finished) return;
+                    finished = true;
+                    dialog.close();
+                    resolve({isConfirmed: ok});
+                }
+                confirm.onclick = function () { finish(true); };
+                cancel.onclick = function () { finish(false); };
+                dialog.oncancel = function (event) { event.preventDefault(); finish(false); };
+                if (typeof dialog.showModal === 'function') dialog.showModal();
+                else resolve({isConfirmed: options.showCancelButton ? window.confirm(title.textContent + '\n' + body.textContent) : (window.alert(title.textContent), false)});
+            });
+        }};
         // 商品数据，根据分类不同可以进行动态更新
         var products = {
             category1: ["安卓&鸿蒙端通用加速器", "苹果端&ipad端加速器", "Win端加速器", "Mac端加速器"],
-            category2: ["谷歌邮箱人工", "推特成品账号", "ChatGPT账号", "instagram账号", "Telegram账号"],
+            category2: ["独享shadowrocket成品号", "谷歌邮箱人工", "推特成品账号", "ChatGPT账号", "instagram账号", "Telegram账号","ChatGPT Plus账号续费"],
             category3: ["Tiktok企业签名内部版", "Fc2ppv番剧全网资源"],
         };
 
@@ -102,7 +149,7 @@
                 price: "价格：15元",
             },
             "苹果端&ipad端加速器": {
-                description: "1. lOS系统专用shadowrocket, 稳定速度快，节点已经稳定维护三年！ 无流量限制，部分节点解锁Netflix和ChatGPT！<br>2. 付款后会自动发给你节点、教程和共享带有小火箭的appleid（苹果政策更新不保证appleid可用）<br>3. 具体详情请参照网址：<a href='https://plamdoc.github.io/faka/ios.html' target='_blank'>ios</a>",
+                description: "1. lOS系统专用shadowrocket, 稳定速度快，节点已经稳定维护三年！ 无流量限制，部分节点解锁Netflix和ChatGPT！<br>2. 付款后会自动发给你节点、教程和共享带有小火箭的appleid（苹果政策更新不保证appleid可用,急需小火箭账号下载软件勿拍！！！）<br>3. 具体详情请参照网址：<a href='https://plamdoc.github.io/faka/ios.html' target='_blank'>ios</a>",
                 price: "价格：20元",
             },
             "Win端加速器": {
@@ -112,6 +159,10 @@
             "Mac端加速器": {
                 description: "Mac系统专用Clash Verge+节点池+机场, 速度快，已经稳定四年不收费！<br>无流量限制，无广告，可一直白嫖加速度！<br>具体简介请参照win端",
                 price: "价格：25元",
+            },
+             "独享shadowrocket成品号": {
+                description: "1.AppStore售价： $2.99,已购买此App的苹果账号 （不教App使用）；<br>2.账号完全归你所有；本账号 可免费下载部分付费App（但不教App使用和服务）<br>3. 账号未绑定手机号，登录时会提示绑定，不想绑定就按教程跳过；同时必须按教程改资料！;<br>4.任何账号均无永久或能保证不封，本账号质保7天，7天内封号换新;<br>5.本账号仅限登录 AppStore ，禁止登录iCloud；如果是刷机后需要登录才能开机的页面，点【没有或忘记AppleID-稍后在—设置-中设置】即可跳过；<br>5.具体帮助请参照网址：<a href='https://plamdoc.github.io/faka/applehelp.html' target='_blank'>Applehelp</a>",
+                price: "价格：50元",
             },
             "谷歌邮箱人工": {
                 description: "1. 购买前请注意：请自备一个手机号，拍后找网站管理员申请代注册；<br>2. 谷歌邮箱均为留学生人工代申请，不易炸号锁号！稳定!<br>3. 账号如有问题，可联系网站右下角客服更换或帮助！",
@@ -132,6 +183,10 @@
             "Telegram账号": {
                 description: "1. 注意：国区手机号限制注册telegram飞机号<br>2. 本站纯手工代注册TG号，这边提供手机号码供你接码，保护信息，无后顾之忧；<br>3. 购买后联系网页右下角客服发给你TG独享专用账号！",
                 price: "价格：45元",
+            },
+             "ChatGPT Plus账号续费": {
+                description: "1. 注意：ChatGPT Plus官方直充续费1个月<br>2. 本站纯手工正规渠道代充值续费，没有账号无法充值使用，全程私密聊天保护信息，无后顾之忧；<br>3. 购买后联系网页右下角客服发送您的账号！",
+                price: "价格：158元",
             },
             "Tiktok企业签名内部版": {
                 description: "1. 商品仅为ios系统使用,安卓教程网址是免费获取的；<br>2. tiktok企业签名内部版保证稳定半年,掉签联系补签安装包!<br>3. 如有其他疑问可联系网站右下角客服！",
@@ -162,6 +217,7 @@
                 var description = productDescriptions[selectedProduct].description;
                 var price = productDescriptions[selectedProduct].price;
                 descriptionElement.innerHTML = `<p>${description}</p><p>${price}</p>`;
+                descriptionElement.querySelectorAll('a[target="_blank"]').forEach(function (a) { a.rel = 'noopener noreferrer'; });
             } else {
                 descriptionElement.innerHTML = "";
             }
@@ -187,7 +243,7 @@
 var confirmButton = document.getElementById("confirm-button");
 confirmButton.addEventListener("click", function () {
     var selectedProduct = productSelect.options[productSelect.selectedIndex].text;
-    var userEmail = document.getElementById("email").value;
+    var userEmail = document.getElementById("email").value.trim();
     var selectedPayment = document.querySelector('input[name="payment"]:checked');
 
     if (selectedProduct && userEmail && selectedPayment) {
@@ -202,16 +258,16 @@ confirmButton.addEventListener("click", function () {
         var paymentUrl = "";
         if (paymentMethod === "wechat") {
             // 拼接支付链接，将商品参数和价格传递给wxpay.php
-            paymentUrl = "wxpay.html?product=" + selectedProduct + "&price=" + productPrice + "&email=" + userEmail;
+            paymentUrl = "wxpay.html?" + new URLSearchParams({product:selectedProduct, price:productPrice, email:userEmail}).toString();
         } else if (paymentMethod === "alipay") {
             // 拼接支付链接，将商品参数和价格传递给alipay.php
-            paymentUrl = "alipay.html?product=" + selectedProduct + "&price=" + productPrice + "&email=" + userEmail;
+            paymentUrl = "alipay.html?" + new URLSearchParams({product:selectedProduct, price:productPrice, email:userEmail}).toString();
         }
 
-        // 使用SweetAlert2弹窗显示订单信息，包括订单编号和支付链接
+        // 使用本地轻量弹窗显示订单信息，包括订单编号和支付链接
         Swal.fire({
             title: '确认订单',
-            html: `<p>订单编号：${orderNumber}</p><p>商品：${selectedProduct}</p><p>${productPrice}</p><p>邮箱：${userEmail}</p><p>支付方式：${selectedPayment.value}</p>`,
+            html: `<p>订单编号：${orderNumber}</p><p>商品：${escapeHTML(selectedProduct)}</p><p>${productPrice}</p><p>邮箱：${escapeHTML(userEmail)}</p><p>支付方式：${selectedPayment.value}</p>`,
             icon: 'info',
             showCancelButton: true,
             confirmButtonText: '立即支付',
@@ -219,7 +275,7 @@ confirmButton.addEventListener("click", function () {
         }).then((result) => {
             if (result.isConfirmed) {
                 // 在用户确认支付后，打开带商品参数和价格的支付链接
-                window.open(paymentUrl, "_blank");
+                window.open(paymentUrl, "_blank", "noopener,noreferrer");
             }
         });
     } else {
@@ -248,7 +304,7 @@ function getProductPrice(productName) {
 
     <!-- 点击客服按钮 -->
     <button id="contact-button" class="btn btn-info btn-block contact-btn">
-        <i class="fas fa-comments"></i> 联系客服
+        <span aria-hidden="true">◌</span> 联系客服
     </button>
 
     <!-- JavaScript代码，处理按钮点击事件并打开链接 -->
@@ -263,6 +319,19 @@ function getProductPrice(productName) {
     </script>
     <script type="text/javascript">
         document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+    <!-- 客服在页面展示后延迟加载，避免与首屏竞争网络资源。 -->
+    <script>
+        window.$crisp = window.$crisp || [];
+        window.CRISP_WEBSITE_ID = '003dd431-bacc-438f-b57a-5ec2dc030618';
+        function loadChat() {
+            if (document.getElementById('crisp-loader')) return;
+            var script = document.createElement('script');
+            script.id = 'crisp-loader'; script.src = 'https://client.crisp.chat/l.js'; script.async = true;
+            document.head.appendChild(script);
+        }
+        window.addEventListener('load', function () { window.setTimeout(loadChat, 2500); }, {once:true});
+        document.querySelectorAll('a[target="_blank"]').forEach(function (a) { a.rel = 'noopener noreferrer'; });
     </script>
 </body>
 </html>
