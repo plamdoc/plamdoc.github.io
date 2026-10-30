@@ -14,7 +14,7 @@
         h3{font-size:25px;line-height:1.3;letter-spacing:1px;margin:0;font-weight:700}.header-note{margin:8px 0 0;text-align:center;font-size:13px;color:#e5eeff}.card-body{padding:28px}
         .alert{padding:15px 17px;border-radius:12px;margin-bottom:22px;font-size:13px;line-height:1.85;border:1px solid #dce9fd}.alert-info{background:#f0f6ff;color:#385173}.alert strong{display:inline-block;color:#2357a0;margin-bottom:5px;font-size:14px}
         .form-group{margin-bottom:21px}label{display:inline-block;font-size:14px;font-weight:600;margin-bottom:8px}.form-control{display:block;width:100%;min-height:46px;border:1px solid #dce3ee;border-radius:10px;background:#fff;padding:10px 13px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
-        .form-control:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px #1664e81a}.form-control::placeholder{color:#9aa7b8}select.form-control{cursor:pointer}#product-description p{margin:0}#product-description p+p{margin-top:12px;padding-top:10px;border-top:1px solid #dce9fd;font-size:18px;font-weight:700;color:var(--blue)}
+        .form-control:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px #1664e81a}.form-control::placeholder{color:#9aa7b8}select.form-control{cursor:pointer}
         .payment-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-check{position:relative}.form-check-input{position:absolute;top:17px;left:13px;accent-color:var(--blue);width:16px;height:16px;margin:0}.form-check-label{width:100%;margin:0;cursor:pointer;border:1px solid var(--line);border-radius:11px;padding:13px 10px 13px 39px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500}.form-check-input:checked+.form-check-label{background:#eef5ff;border-color:#8cb6f8;color:var(--blue)}.form-check-input:focus-visible+.form-check-label{outline:3px solid #1664e84d}
         .pay-icon{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:7px;font-size:12px;font-weight:700;color:white;background:#20b469}.pay-icon.alipay{background:#1689ef}
         .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:46px;padding:11px 20px;border:0;border-radius:11px;cursor:pointer;font-weight:600;transition:background .15s,transform .15s}.btn:active{transform:translateY(1px)}.btn:focus-visible{outline:3px solid #9dbff5;outline-offset:3px}.btn-primary{background:var(--blue);color:white;box-shadow:0 5px 14px #1664e826}.btn-primary:hover{background:#0b54cb}.btn-block{display:flex;width:100%}.btn-info{background:white;color:#526780;border:1px solid var(--line)}.btn-info:hover{background:#edf3fd}
@@ -22,6 +22,22 @@
         dialog{border:1px solid var(--line);border-radius:20px;width:calc(100% - 36px);max-width:460px;padding:26px;color:var(--ink);box-shadow:0 24px 90px #172b4d33}dialog::backdrop{background:#172b4d66}dialog h2{font-size:21px;margin:0 0 16px}dialog p{margin:8px 0;overflow-wrap:anywhere;font-size:14px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.dialog-cancel{background:#edf1f7;color:#526780}
         @media(max-width:540px){.mt-5{margin-top:18px}.container{padding:0 12px}.card{border-radius:17px}.card-header{padding:22px 18px}.card-body{padding:20px 17px}h3{font-size:23px}.payment-options{gap:8px}.form-check-label{font-size:13px;padding-left:35px}#contact-button{width:calc(100% - 24px)}.alert{padding:12px 14px}}
         @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+        /* 商品摘要：图片、名称、价格分层，所有图标内联，无新增外部库。 */
+        .product-panel{border:1px solid var(--line);border-radius:15px;background:white;margin-bottom:24px;overflow:hidden}
+        .product-summary{display:flex;align-items:center;gap:15px;padding:18px;background:linear-gradient(110deg,#f7faff,#fff)}
+        .product-cover{width:76px;height:76px;flex-shrink:0;display:block;border-radius:17px;object-fit:contain;background:#f0f5fd;border:1px solid #e6edf8}
+        .product-heading{min-width:0;flex:1}.product-eyebrow{display:block;color:var(--muted);font-size:11px;letter-spacing:1px;margin-bottom:4px}
+        .product-name{margin:0;color:var(--ink);font-size:17px;font-weight:650;line-height:1.5;overflow-wrap:anywhere}
+        .product-price{display:block;margin-top:5px;color:var(--blue);font-weight:750;font-size:25px;line-height:1.3;font-variant-numeric:tabular-nums}
+        .product-price small{font-size:12px;font-weight:500;color:var(--muted);margin-left:7px}
+        .product-info{border-top:1px solid var(--line);padding:17px 18px 19px;font-size:13px;line-height:1.95;color:#52627b}
+        .product-section-title{margin:0 0 9px;font-size:13px;color:var(--ink);font-weight:650}.product-copy{overflow-wrap:anywhere}.product-copy a{font-weight:500}
+        .product-tutorial{border:1px solid #e1eaf8;border-radius:10px;margin-top:16px;background:#f8faff;overflow:hidden}
+        .product-tutorial summary{cursor:pointer;padding:12px 14px;font-size:13px;font-weight:600;color:#245cad}
+        .tutorial-body{padding:0 12px 12px}.tutorial-link{display:block;text-align:center}.tutorial-link img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:white}
+        .tutorial-caption{display:block;font-size:12px;margin-top:8px;color:var(--muted)}.tutorial-error{font-size:12px;color:#8b642d;padding:10px;background:#fff8eb;border-radius:8px;margin:8px 0}
+        @media(max-width:540px){.product-summary{padding:15px;gap:12px}.product-cover{width:64px;height:64px;border-radius:14px}.product-name{font-size:15px}.product-price{font-size:24px}.product-info{padding:15px}}
     </style>
 </head>
 <body>
@@ -59,7 +75,7 @@
                             </select>
                         </div>
                         <!-- 商品介绍 -->
-                        <div id="product-description" class="alert alert-info">
+                        <div id="product-description" class="product-panel">
                             <!-- 商品介绍内容将在JavaScript中动态更新 -->
                         </div>
                         <!-- 邮箱输入 -->
@@ -171,25 +187,6 @@
         <a href="https://plamdoc.github.io/faka/applehelp.html"
            target="_blank"
            rel="noopener noreferrer">Applehelp</a>
-
-        <a href="hhttps://i0.hdslb.com/bfs/new_dyn/46d9f5a1cc0160bf99bb7e9afdefa0c63461580389878058.png"
-           target="_blank"
-           rel="noopener noreferrer"
-           style="display:block;margin-top:16px;text-align:center;">
-            <img
-                src="https://i0.hdslb.com/bfs/new_dyn/46d9f5a1cc0160bf99bb7e9afdefa0c63461580389878058.png"
-                alt="苹果应用商店登录教程"
-                width="1600"
-                height="1528"
-                loading="lazy"
-                decoding="async"
-                referrerpolicy="no-referrer"
-                style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;"
-            >
-            <span style="display:block;margin-top:6px;font-size:12px;color:#718096;">
-                点击图片查看大图
-            </span>
-        </a>
     `,
     price: "价格：50元",
 },
@@ -238,18 +235,84 @@
             });
         }
 
-        // 更新商品介绍和价格
+
+        // 商品图片配置：将 image 的空字符串替换为图片网址即可；未填写时使用内置轻量标识。
+        var productVisuals = {
+            "安卓&鸿蒙端通用加速器": {label:"安卓",color:"#2a9d67",image:"https://i0.hdslb.com/bfs/custom_new/245e661629826f41475b81a956813ee13461580389878058.jpg"},
+            "苹果端&ipad端加速器": {label:"iOS",color:"#4668d9",image:"https://i0.hdslb.com/bfs/custom_new/cea98bacd2342501920316f0f562d5753461580389878058.png"},
+            "Win端加速器": {label:"Win",color:"#1687dc",image:"https://i0.hdslb.com/bfs/custom_new/4634a024265deb3f5ebd48e0e83ffc823461580389878058.jpg"},
+            "Mac端加速器": {label:"Mac",color:"#586580",image:""},
+            "独享shadowrocket成品号": {label:"SR",color:"#5374e4",image:"https://i0.hdslb.com/bfs/custom_new/cea98bacd2342501920316f0f562d5753461580389878058.png",tutorial:'https://i0.hdslb.com/bfs/new_dyn/46d9f5a1cc0160bf99bb7e9afdefa0c63461580389878058.png'},
+            "谷歌邮箱人工": {label:"邮件",color:"#d85c51",image:"https://i0.hdslb.com/bfs/custom_new/13e59700ee69b6bf7f9f4edc0a127cda3461580389878058.png"},
+            "推特成品账号": {label:"X",color:"#263349",image:""},
+            "ChatGPT账号": {label:"AI",color:"#149779",image:""},
+            "instagram账号": {label:"Ins",color:"#bb58a4",image:""},
+            "Telegram账号": {label:"TG",color:"#299bd2",image:""},
+            "ChatGPT Plus账号续费": {label:"Plus",color:"#7661c8",image:""},
+            "Tiktok企业签名内部版": {label:"Tik",color:"#354057",image:""},
+            "Fc2ppv番剧全网资源": {label:"FC2",color:"#d97544",image:""}
+        };
+        function productIcon(visual) {
+            var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect width="80" height="80" rx="17" fill="'+ visual.color +'"/><circle cx="67" cy="10" r="31" fill="white" opacity=".1"/><text x="40" y="43" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="white">'+ visual.label +'</text></svg>';
+            return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+        }
+
+        // 商品切换仅更新展示区域，购买与支付参数仍使用原商品数据。
         function updateProductDescription() {
             var selectedProduct = productSelect.value;
-            var descriptionElement = document.getElementById("product-description");
-            if (productDescriptions[selectedProduct]) {
-                var description = productDescriptions[selectedProduct].description;
-                var price = productDescriptions[selectedProduct].price;
-                descriptionElement.innerHTML = `<p>${description}</p><p>${price}</p>`;
-                descriptionElement.querySelectorAll('a[target="_blank"]').forEach(function (a) { a.rel = 'noopener noreferrer'; });
-            } else {
-                descriptionElement.innerHTML = "";
+            var panel = document.getElementById('product-description');
+            var data = productDescriptions[selectedProduct];
+            if (!data) { panel.innerHTML = ''; return; }
+            var visual = productVisuals[selectedProduct] || {label:'商品',color:'#5374e4',image:''};
+            var defaultIcon = productIcon(visual);
+            var priceText = data.price.replace(/^价格[：:]\s*/, '');
+            var categoryName = categorySelect.options[categorySelect.selectedIndex].text;
+            panel.innerHTML = `
+                <div class="product-summary">
+                    <img class="product-cover" width="76" height="76" alt="${escapeHTML(selectedProduct)}商品标识" decoding="async" referrerpolicy="no-referrer">
+                    <div class="product-heading">
+                        <span class="product-eyebrow">${escapeHTML(categoryName)}</span>
+                        <h4 class="product-name">${escapeHTML(selectedProduct)}</h4>
+                        <span class="product-price">${escapeHTML(priceText)}<small>商品价格</small></span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h5 class="product-section-title">商品说明</h5>
+                    <div class="product-copy">${data.description}</div>
+                </div>`;
+            var cover = panel.querySelector('.product-cover');
+            cover.addEventListener('error', function () {
+                if (cover.getAttribute('src') !== defaultIcon) cover.src = defaultIcon;
+            });
+            cover.src = visual.image || defaultIcon;
+            if (visual.tutorial) {
+                var details = document.createElement('details');
+                details.className = 'product-tutorial';
+                details.innerHTML = '<summary>查看 App Store 登录教程</summary><div class="tutorial-body"></div>';
+                // 打开教程后才创建图片，未打开时不会请求大图。
+                details.addEventListener('toggle', function () {
+                    if (!details.open || details.dataset.loaded) return;
+                    details.dataset.loaded = 'true';
+                    var body = details.querySelector('.tutorial-body');
+                    var link = document.createElement('a');
+                    link.className = 'tutorial-link'; link.href = visual.tutorial;
+                    link.target = '_blank'; link.rel = 'noopener noreferrer';
+                    var image = document.createElement('img');
+                    image.alt = '苹果应用商店登录教程'; image.decoding = 'async'; image.referrerPolicy = 'no-referrer';
+                    image.addEventListener('error', function () {
+                        image.hidden = true;
+                        var message = document.createElement('p'); message.className = 'tutorial-error';
+                        message.textContent = '教程图片暂时加载失败，可点击下方链接查看原图。';
+                        body.prepend(message);
+                    }, {once:true});
+                    var caption = document.createElement('span'); caption.className = 'tutorial-caption';
+                    caption.textContent = '点击查看教程原图';
+                    link.appendChild(image); link.appendChild(caption); body.appendChild(link);
+                    image.src = visual.tutorial;
+                });
+                panel.querySelector('.product-info').appendChild(details);
             }
+            panel.querySelectorAll('a[target="_blank"]').forEach(function (a) { a.rel = 'noopener noreferrer'; });
         }
 
         // 监听商品分类选择改变事件
